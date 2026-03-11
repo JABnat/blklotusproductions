@@ -48,7 +48,7 @@
   padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 50px;
   transition: all 0.3s ease;
 }
 
@@ -94,7 +94,7 @@
   height: auto;
   display: block;
   object-fit: cover;
-  aspect-ratio: 16/9;
+  aspect-ratio: 8/9;
 }
 
 /* Tablet */
@@ -118,6 +118,10 @@
   .heroInner {
     flex-direction: column;
     text-align: center;
+  }
+
+  .title {
+    padding-top:10%;
   }
 
   .textContent {
@@ -153,5 +157,9 @@
   .ctaBtn {
     width: 100%;
     text-align: center;
+  }
+
+  .title {
+    padding-top: 25%;
   }
 }

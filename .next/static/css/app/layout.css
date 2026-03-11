@@ -1,3 +1,67 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.js","import":"","arguments":[{"src":"./fonts/BICRODE.ttf","variable":"--font-bicroad","display":"swap"}],"variableName":"bicroad"} ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+font-family: '__bicroad_3b85f8';
+src: url(/_next/static/media/370ab0dc7c9da1a6-s.p.ttf) format('truetype');
+font-display: swap;
+}@font-face {font-family: '__bicroad_Fallback_3b85f8';src: local("Arial");ascent-override: 38.34%;descent-override: 12.27%;line-gap-override: 0.00%;size-adjust: 195.61%
+}.__className_3b85f8 {font-family: '__bicroad_3b85f8', '__bicroad_Fallback_3b85f8'
+}.__variable_3b85f8 {--font-bicroad: '__bicroad_3b85f8', '__bicroad_Fallback_3b85f8'
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src/app/layout.js","import":"Koulen","arguments":[{"subsets":["latin"],"weight":"400","variable":"--font-koulen","display":"swap"}],"variableName":"koulen"} ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* khmer */
+@font-face {
+  font-family: '__Koulen_335baa';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/68642b137ed3c09a-s.woff2) format('woff2');
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
+}
+/* latin */
+@font-face {
+  font-family: '__Koulen_335baa';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/3e5a4adce6899c89-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {font-family: '__Koulen_Fallback_335baa';src: local("Arial");ascent-override: 137.09%;descent-override: 65.80%;line-gap-override: 0.00%;size-adjust: 89.05%
+}.__className_335baa {font-family: '__Koulen_335baa', '__Koulen_Fallback_335baa';font-weight: 400;font-style: normal
+}.__variable_335baa {--font-koulen: '__Koulen_335baa', '__Koulen_Fallback_335baa'
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src/app/layout.js","import":"Instrument_Sans","arguments":[{"subsets":["latin"],"variable":"--font-instrument-sans","display":"swap"}],"variableName":"instrumentSans"} ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* latin-ext */
+@font-face {
+  font-family: '__Instrument_Sans_3d9088';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/_next/static/media/adb45196eddef626-s.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: '__Instrument_Sans_3d9088';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/_next/static/media/26d0ba92e140f0dc-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {font-family: '__Instrument_Sans_Fallback_3d9088';src: local("Arial");ascent-override: 94.42%;descent-override: 24.33%;line-gap-override: 0.00%;size-adjust: 102.74%
+}.__className_3d9088 {font-family: '__Instrument_Sans_3d9088', '__Instrument_Sans_Fallback_3d9088';font-style: normal
+}.__variable_3d9088 {--font-instrument-sans: '__Instrument_Sans_3d9088', '__Instrument_Sans_Fallback_3d9088'
+}
+
 /*!*****************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./src/app/globals.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************/
@@ -15,8 +79,10 @@
   --color-accent-2: #6d6c67;
   --color-accent-3: #564e43;
   
-  /* Typography */
-  --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography (semantic aliases; base variables come from next/font in layout.js) */
+  --font-primary: var(--font-instrument-sans);
+  --font-title: var(--font-bicroad);
+  --font-subtitle: var(--font-koulen);
   
   /* Spacing */
   --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
@@ -37,6 +103,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none;
 }
 
 html {
@@ -74,10 +141,51 @@ ol {
 /* Buttons */
 button {
   font-family: inherit;
-  cursor: pointer;
   border: none;
   background: none;
   color: inherit;
+}
+
+/* ============================
+   CUSTOM CURSOR
+   ============================ */
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: clamp(14px, 1.2vw, 18px);
+  height: clamp(14px, 1.2vw, 18px);
+  border-radius: 50%;
+  background-color: var(--color-white);
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.08s ease;
+}
+
+.custom-cursor--hover {
+  width: clamp(40px, 4vw, 60px);
+  height: clamp(40px, 4vw, 60px);
+  background-color: transparent;
+  box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+/* Show native cursor and hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  *,
+  *::before,
+  *::after {
+    cursor: auto;
+  }
+
+  .custom-cursor {
+    display: none;
+  }
 }
 
 /* Container utility */
@@ -182,9 +290,11 @@ button {
 
 .Footer_businessName__X2OqO {
   font-size: clamp(1.25rem, 3vw, 2rem);
+  text-align: center;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--color-white);
+  font-family: var(--font-title);
 }
 
 /* Links Section */
@@ -209,6 +319,7 @@ button {
   font-weight: 600;
   color: var(--color-accent-1);
   margin-bottom: var(--spacing-sm);
+  font-family: var(--font-subtitle);
 }
 
 .Footer_link__wByfM {
@@ -295,32 +406,38 @@ button {
 }
 
 .Navbar_logoText__e_BoQ {
+  line-height: normal;
   font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
   color: var(--color-white);
+  font-family: var(--font-bicroad);
 }
 
 /* Quick Links */
 .Navbar_quickLinks__urvGy {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
+  flex-direction: column;
+  align-items:center;
 }
 
 .Navbar_quickLinkBtn__4vFYL {
-  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
-  background-color: var(--color-accent-3);
+  padding: clamp(0.1rem, 0.1vw, 0.1rem) clamp(.1rem, .1vw, 1.5rem);
   color: var(--color-white);
-  border-radius: 4px;
+  border-radius: 50px;
   font-size: clamp(0.75rem, 1.5vw, 1rem);
   font-weight: 500;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .Navbar_quickLinkBtn__4vFYL:hover {
-  background-color: var(--color-accent-2);
   transform: translateY(-2px);
+}
+
+.Navbar_quickLinkBtnContainer__EfCh5 {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-sm);
 }
 
 /* Location Text */
@@ -335,6 +452,7 @@ button {
   font-size: clamp(0.7rem, 1.2vw, 0.9rem);
   font-weight: 600;
   color: var(--color-accent-1);
+   font-family: var(--font-subtitle);
 }
 
 .Navbar_locationSubtitle__by5dn {
@@ -344,10 +462,6 @@ button {
 
 /* Tablet */
 @media screen and (max-width: 1024px) {
-  .Navbar_navbarInner__CLbsQ {
-    justify-content: center;
-  }
-
   .Navbar_locationContainer__3_X_e {
     align-items: center;
     text-align: center;
@@ -366,8 +480,16 @@ button {
   }
 
   .Navbar_logoContainer__FRG8N {
-    width: 100%;
-    justify-content: center;
+      display: flex;
+      flex-direction: row;
+  }
+
+  .Navbar_logo__PiZmU {
+      height: clamp(80px, 8vw, 100px);
+  }
+
+  .Navbar_logoText__e_BoQ {
+      text-align: center;
   }
 
   .Navbar_quickLinks__urvGy {
@@ -390,6 +512,19 @@ button {
 
 /* iPhone Mobile */
 @media screen and (max-width: 359px) {
+    .Navbar_logoContainer__FRG8N {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Navbar_logo__PiZmU {
+        height: clamp(80px, 8vw, 100px);
+    }
+
+    .Navbar_logoText__e_BoQ {
+        text-align: center;
+    }
+
   .Navbar_quickLinks__urvGy {
     flex-direction: column;
     width: 100%;

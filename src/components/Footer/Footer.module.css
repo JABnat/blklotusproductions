@@ -25,9 +25,11 @@
 
 .businessName {
   font-size: clamp(1.25rem, 3vw, 2rem);
+  text-align: center;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--color-white);
+  font-family: var(--font-title);
 }
 
 /* Links Section */
@@ -52,6 +54,7 @@
   font-weight: 600;
   color: var(--color-accent-1);
   margin-bottom: var(--spacing-sm);
+  font-family: var(--font-subtitle);
 }
 
 .link {

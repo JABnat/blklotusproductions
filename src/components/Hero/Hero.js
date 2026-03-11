@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
+    <section id="hero" className={styles.hero}>
       <div className={`container ${styles.heroInner}`}>
         {/* Text Content */}
         <div className={styles.textContent}>
@@ -24,12 +24,6 @@ export default function Hero() {
               className={`${styles.ctaBtn} ${styles.ctaPrimary}`}
             >
               Get in Touch
-            </Link>
-            <Link
-              href="/photos"
-              className={`${styles.ctaBtn} ${styles.ctaSecondary}`}
-            >
-              View Portfolio
             </Link>
           </div>
         </div>

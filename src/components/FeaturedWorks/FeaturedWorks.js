@@ -54,14 +54,9 @@ export default function FeaturedWorks() {
       {/* Marquee Title */}
       <div className={styles.marqueeWrapper}>
         <div className={styles.marquee}>
-          <span className={styles.marqueeText}>Featured Works</span>
-          <span className={styles.marqueeText}>★</span>
-          <span className={styles.marqueeText}>Featured Works</span>
-          <span className={styles.marqueeText}>★</span>
-          <span className={styles.marqueeText}>Featured Works</span>
-          <span className={styles.marqueeText}>★</span>
-          <span className={styles.marqueeText}>Featured Works</span>
-          <span className={styles.marqueeText}>★</span>
+          <span className={styles.marqueeText}>
+                Featured Works<sup style={{ fontSize: "0.5em" }}>(2)</sup>
+          </span>
         </div>
       </div>
 

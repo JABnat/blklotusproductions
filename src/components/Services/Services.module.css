@@ -7,25 +7,23 @@
 /* Marquee Title */
 .marqueeWrapper {
   margin-bottom: var(--spacing-lg);
-  border-top: 1px solid var(--color-accent-3);
   border-bottom: 1px solid var(--color-accent-3);
-  padding: var(--spacing-md) 0;
 }
 
 .marquee {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 10s linear infinite;
 }
 
 .marqueeText {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-accent-2);
-  padding: 0 var(--spacing-lg);
-  white-space: nowrap;
+    font-size: clamp(15rem, 5vw, 4rem);
+    font-weight: 100;
+    text-transform: uppercase;
+    color: var(--color-accent-1);
+    padding: 0 var(--spacing-lg);
+    white-space: nowrap;
+    font-family: var(--font-subtitle);
 }
 
 @keyframes marquee {
@@ -138,7 +136,7 @@
   color: var(--color-black);
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 50px;
   transition: all 0.3s ease;
 }
 

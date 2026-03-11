@@ -12,8 +12,10 @@
   --color-accent-2: #6d6c67;
   --color-accent-3: #564e43;
   
-  /* Typography */
-  --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography (semantic aliases; base variables come from next/font in layout.js) */
+  --font-primary: var(--font-instrument-sans);
+  --font-title: var(--font-bicroad);
+  --font-subtitle: var(--font-koulen);
   
   /* Spacing */
   --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
@@ -34,6 +36,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none;
 }
 
 html {
@@ -71,10 +74,51 @@ ol {
 /* Buttons */
 button {
   font-family: inherit;
-  cursor: pointer;
   border: none;
   background: none;
   color: inherit;
+}
+
+/* ============================
+   CUSTOM CURSOR
+   ============================ */
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: clamp(14px, 1.2vw, 18px);
+  height: clamp(14px, 1.2vw, 18px);
+  border-radius: 50%;
+  background-color: var(--color-white);
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.08s ease;
+}
+
+.custom-cursor--hover {
+  width: clamp(40px, 4vw, 60px);
+  height: clamp(40px, 4vw, 60px);
+  background-color: transparent;
+  box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+/* Show native cursor and hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  *,
+  *::before,
+  *::after {
+    cursor: auto;
+  }
+
+  .custom-cursor {
+    display: none;
+  }
 }
 
 /* Container utility */

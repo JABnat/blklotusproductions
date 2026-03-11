@@ -2,15 +2,9 @@
 
 import styles from "./Navbar.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <nav className={styles.navbar}>
       <div className={`container ${styles.navbarInner}`}>
@@ -18,29 +12,29 @@ export default function Navbar() {
         <div className={styles.logoContainer}>
           <Image
             src="/assets/logo/blklotus-logo_white.png"
-            alt="BLK Lotus Logo"
+            alt="BLK Lotus Productions Logo"
             width={60}
             height={60}
             className={styles.logo}
             priority
           />
-          <span className={styles.logoText}>BLK LOTUS</span>
+          <span className={styles.logoText}>Blk Lotus<br /> Productions</span>
         </div>
 
         {/* Quick Links */}
         <div className={styles.quickLinks}>
-          <button
-            className={styles.quickLinkBtn}
-            onClick={() => scrollToSection("featured-works")}
-          >
-            Featured Works
-          </button>
-          <button
-            className={styles.quickLinkBtn}
-            onClick={() => scrollToSection("services")}
-          >
-            Services
-          </button>
+          <span className={styles.locationTitle}>Quick links</span>
+          <div className={styles.quickLinkBtnContainer}>
+            <Link href="/#hero" className={styles.quickLinkBtn}>
+              home
+            </Link>
+            <Link href="/#featured-works" className={styles.quickLinkBtn}>
+              works
+            </Link>
+            <Link href="/#services" className={styles.quickLinkBtn}>
+              services
+            </Link>
+          </div>
         </div>
 
         {/* Location Text */}

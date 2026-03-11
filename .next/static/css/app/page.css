@@ -9,25 +9,23 @@
 /* Marquee Title */
 .FeaturedWorks_marqueeWrapper__YWGIW {
   margin-bottom: var(--spacing-lg);
-  border-top: 1px solid var(--color-accent-3);
   border-bottom: 1px solid var(--color-accent-3);
-  padding: var(--spacing-md) 0;
 }
 
 .FeaturedWorks_marquee__206XU {
   display: flex;
   width: max-content;
-  animation: FeaturedWorks_marquee__206XU 25s linear infinite;
+  animation: FeaturedWorks_marquee__206XU 8.3s linear infinite;
 }
 
 .FeaturedWorks_marqueeText__WW1cR {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 800;
+  font-size: clamp(15rem, 5vw, 4rem);
+  font-weight: 100;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
   color: var(--color-accent-1);
   padding: 0 var(--spacing-lg);
   white-space: nowrap;
+  font-family: var(--font-subtitle);
 }
 
 @keyframes FeaturedWorks_marquee__206XU {
@@ -98,7 +96,7 @@
   font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   color: var(--color-accent-1);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
 }
 
 /* View All Button */
@@ -115,7 +113,7 @@
   color: var(--color-accent-1);
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 50px;
   transition: all 0.3s ease;
 }
 
@@ -203,7 +201,7 @@
   padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 50px;
   transition: all 0.3s ease;
 }
 
@@ -249,7 +247,7 @@
   height: auto;
   display: block;
   object-fit: cover;
-  aspect-ratio: 16/9;
+  aspect-ratio: 8/9;
 }
 
 /* Tablet */
@@ -273,6 +271,10 @@
   .Hero_heroInner___eeuy {
     flex-direction: column;
     text-align: center;
+  }
+
+  .Hero_title__bGj6o {
+    padding-top:10%;
   }
 
   .Hero_textContent__QgIjK {
@@ -309,6 +311,10 @@
     width: 100%;
     text-align: center;
   }
+
+  .Hero_title__bGj6o {
+    padding-top: 25%;
+  }
 }
 
 /*!***************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -323,25 +329,23 @@
 /* Marquee Title */
 .Services_marqueeWrapper__ipIfl {
   margin-bottom: var(--spacing-lg);
-  border-top: 1px solid var(--color-accent-3);
   border-bottom: 1px solid var(--color-accent-3);
-  padding: var(--spacing-md) 0;
 }
 
 .Services_marquee__tBu0Z {
   display: flex;
   width: max-content;
-  animation: Services_marquee__tBu0Z 30s linear infinite;
+  animation: Services_marquee__tBu0Z 10s linear infinite;
 }
 
 .Services_marqueeText__oeS2m {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-accent-2);
-  padding: 0 var(--spacing-lg);
-  white-space: nowrap;
+    font-size: clamp(15rem, 5vw, 4rem);
+    font-weight: 100;
+    text-transform: uppercase;
+    color: var(--color-accent-1);
+    padding: 0 var(--spacing-lg);
+    white-space: nowrap;
+    font-family: var(--font-subtitle);
 }
 
 @keyframes Services_marquee__tBu0Z {
@@ -454,7 +458,7 @@
   color: var(--color-black);
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 50px;
   transition: all 0.3s ease;
 }
 
@@ -501,7 +505,6 @@
 /* Marquee Title */
 .Testimonials_marqueeWrapper__pGG1A {
   margin-bottom: var(--spacing-lg);
-  border-top: 1px solid var(--color-accent-3);
   border-bottom: 1px solid var(--color-accent-3);
   padding: var(--spacing-md) 0;
 }
@@ -509,17 +512,17 @@
 .Testimonials_marquee__dLFwK {
   display: flex;
   width: max-content;
-  animation: Testimonials_marquee__dLFwK 35s linear infinite;
+  animation: Testimonials_marquee__dLFwK 11.7s linear infinite;
 }
 
 .Testimonials_marqueeText__VwdJX {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-accent-3);
-  padding: 0 var(--spacing-lg);
-  white-space: nowrap;
+font-size: clamp(15rem, 5vw, 4rem);
+font-weight: 100;
+text-transform: uppercase;
+color: var(--color-accent-1);
+padding: 0 var(--spacing-lg);
+white-space: nowrap;
+font-family: var(--font-subtitle);
 }
 
 @keyframes Testimonials_marquee__dLFwK {

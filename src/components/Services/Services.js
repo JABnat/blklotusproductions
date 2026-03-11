@@ -61,14 +61,7 @@ export default function Services() {
       {/* Marquee Title */}
       <div className={styles.marqueeWrapper}>
         <div className={styles.marquee}>
-          <span className={styles.marqueeText}>Our Services</span>
-          <span className={styles.marqueeText}>◆</span>
-          <span className={styles.marqueeText}>Our Services</span>
-          <span className={styles.marqueeText}>◆</span>
-          <span className={styles.marqueeText}>Our Services</span>
-          <span className={styles.marqueeText}>◆</span>
-          <span className={styles.marqueeText}>Our Services</span>
-          <span className={styles.marqueeText}>◆</span>
+          <span className={styles.marqueeText}>Services<sup style={{ fontSize: "0.5em" }}>(3)</sup></span>
         </div>
       </div>
 

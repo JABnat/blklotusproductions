@@ -74,14 +74,7 @@ export default function Testimonials() {
       {/* Marquee Title */}
       <div className={styles.marqueeWrapper}>
         <div className={styles.marquee}>
-          <span className={styles.marqueeText}>Client Testimonials</span>
-          <span className={styles.marqueeText}>♦</span>
-          <span className={styles.marqueeText}>Client Testimonials</span>
-          <span className={styles.marqueeText}>♦</span>
-          <span className={styles.marqueeText}>Client Testimonials</span>
-          <span className={styles.marqueeText}>♦</span>
-          <span className={styles.marqueeText}>Client Testimonials</span>
-          <span className={styles.marqueeText}>♦</span>
+          <span className={styles.marqueeText}>Testimonials<sup style={{ fontSize: "0.5em" }}>(4)</sup></span>
         </div>
       </div>
 
