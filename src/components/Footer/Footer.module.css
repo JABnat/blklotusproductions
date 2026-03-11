@@ -1,0 +1,103 @@
+.footer {
+  background-color: var(--color-footer);
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+.footerInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+/* Logo Section */
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logo {
+  height: clamp(60px, 12vw, 100px);
+  width: auto;
+}
+
+.businessName {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+}
+
+/* Links Section */
+.linksSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 1000px;
+}
+
+.linkColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+
+.linkTitle {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  color: var(--color-accent-1);
+  margin-bottom: var(--spacing-sm);
+}
+
+.link {
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  color: var(--color-accent-2);
+  padding: var(--spacing-xs) 0;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--color-white);
+}
+
+/* Copyright */
+.copyright {
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  color: var(--color-accent-2);
+  text-align: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-accent-3);
+  width: 100%;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .linksSection {
+    gap: var(--spacing-md);
+  }
+}
+
+/* Android Mobile */
+@media screen and (max-width: 767px) {
+  .linksSection {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .linkColumn {
+    width: 100%;
+  }
+}
+
+/* iPhone Mobile */
+@media screen and (max-width: 359px) {
+  .linksSection {
+    gap: var(--spacing-sm);
+  }
+}

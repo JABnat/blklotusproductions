@@ -1,0 +1,157 @@
+.hero {
+  min-height: 100vh;
+  padding-top: clamp(100px, 15vh, 150px);
+  display: flex;
+  align-items: center;
+}
+
+.heroInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+/* Text Content */
+.textContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.title {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.titleAccent {
+  color: var(--color-accent-1);
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--color-accent-2);
+  max-width: 500px;
+}
+
+.ctaContainer {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.ctaBtn {
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.ctaPrimary {
+  background-color: var(--color-accent-1);
+  color: var(--color-black);
+}
+
+.ctaPrimary:hover {
+  background-color: var(--color-white);
+  transform: translateY(-3px);
+}
+
+.ctaSecondary {
+  background-color: transparent;
+  border: 2px solid var(--color-accent-2);
+  color: var(--color-white);
+}
+
+.ctaSecondary:hover {
+  border-color: var(--color-accent-1);
+  color: var(--color-accent-1);
+}
+
+/* Video Content */
+.videoContent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoWrapper {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .heroInner {
+    gap: var(--spacing-md);
+  }
+
+  .videoWrapper {
+    max-width: 450px;
+  }
+}
+
+/* Android Mobile */
+@media screen and (max-width: 767px) {
+  .hero {
+    padding-top: clamp(140px, 25vh, 180px);
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .heroInner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .textContent {
+    align-items: center;
+    order: 1;
+  }
+
+  .subtitle {
+    text-align: center;
+  }
+
+  .ctaContainer {
+    justify-content: center;
+  }
+
+  .videoContent {
+    order: 2;
+    width: 100%;
+  }
+
+  .videoWrapper {
+    max-width: 100%;
+  }
+}
+
+/* iPhone Mobile */
+@media screen and (max-width: 359px) {
+  .ctaContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    text-align: center;
+  }
+}

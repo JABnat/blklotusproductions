@@ -1,0 +1,20 @@
+{
+  "name": "blklotus",
+  "version": "1.0.0",
+  "description": "BLK Lotus Photography & Videography Website",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.35",
+    "lottie-react": "^2.4.1",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

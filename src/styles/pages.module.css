@@ -1,0 +1,214 @@
+.pageWrapper {
+  min-height: 100vh;
+  padding-top: clamp(100px, 15vh, 150px);
+  padding-bottom: var(--spacing-xl);
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.pageTitle {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-white);
+}
+
+.pageSubtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-accent-2);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Content Sections */
+.contentSection {
+  margin-bottom: var(--spacing-xl);
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-accent-1);
+}
+
+.sectionText {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--color-accent-2);
+  max-width: 800px;
+}
+
+/* Gallery / Media Grid */
+.mediaContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+.mediaItem {
+  flex: 1 1 calc(33.333% - var(--spacing-md));
+  min-width: 280px;
+  max-width: 400px;
+  aspect-ratio: 4/3;
+  background-color: var(--color-accent-3);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-2);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  transition: transform 0.3s ease;
+}
+
+.mediaItem:hover {
+  transform: scale(1.02);
+}
+
+/* Contact Form Styles */
+.formContainer {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.formLabel {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--color-accent-1);
+  font-weight: 500;
+}
+
+.formInput,
+.formTextarea {
+  padding: clamp(0.75rem, 2vw, 1rem);
+  background-color: rgba(25, 37, 33, 0.5);
+  border: 1px solid var(--color-accent-3);
+  border-radius: 4px;
+  color: var(--color-white);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--color-accent-1);
+}
+
+.formTextarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submitBtn {
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(2rem, 4vw, 3rem);
+  background-color: var(--color-accent-1);
+  color: var(--color-black);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  border-radius: 4px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.submitBtn:hover {
+  background-color: var(--color-white);
+  transform: translateY(-3px);
+}
+
+/* Terms Content */
+.termsContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.termsSection {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-accent-3);
+}
+
+.termsSection:last-child {
+  border-bottom: none;
+}
+
+.termsHeading {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: var(--color-accent-1);
+  margin-bottom: var(--spacing-sm);
+}
+
+.termsParagraph {
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+  line-height: 1.7;
+  color: var(--color-accent-2);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* About Page Specific */
+.aboutContent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.aboutImage {
+  flex: 1 1 40%;
+  min-width: 280px;
+  aspect-ratio: 3/4;
+  background-color: var(--color-accent-3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-2);
+}
+
+.aboutText {
+  flex: 1 1 50%;
+  min-width: 300px;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .mediaItem {
+    flex: 1 1 calc(50% - var(--spacing-md));
+  }
+}
+
+/* Android Mobile */
+@media screen and (max-width: 767px) {
+  .mediaItem {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .aboutContent {
+    flex-direction: column;
+  }
+
+  .aboutImage {
+    width: 100%;
+  }
+}
+
+/* iPhone Mobile */
+@media screen and (max-width: 359px) {
+  .mediaItem {
+    min-width: 100%;
+  }
+}

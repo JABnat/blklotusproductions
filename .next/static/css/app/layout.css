@@ -1,0 +1,403 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./src/app/globals.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+/* ============================
+   GLOBAL STYLES - BLK LOTUS
+   ============================ */
+
+/* CSS Variables */
+:root {
+  /* Brand Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-footer: #192521;
+  --color-accent-1: #cac5b9;
+  --color-accent-2: #6d6c67;
+  --color-accent-3: #564e43;
+  
+  /* Typography */
+  --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 2vw, 1rem);
+  --spacing-md: clamp(1rem, 3vw, 2rem);
+  --spacing-lg: clamp(2rem, 5vw, 4rem);
+  --spacing-xl: clamp(3rem, 8vw, 6rem);
+  
+  /* Container */
+  --container-max-width: 1400px;
+  --container-padding: clamp(1rem, 5vw, 3rem);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Images & Media */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lists */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* Container utility */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Section utility */
+.section {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-content span {
+  padding: 0 var(--spacing-lg);
+  white-space: nowrap;
+}
+
+/* ============================
+   RESPONSIVE BREAKPOINTS
+   Desktop: > 1024px
+   Tablet: 768px - 1024px
+   Android Mobile: 360px - 767px
+   iPhone Mobile: < 360px
+   ============================ */
+
+/* Desktop (default styles above) */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  :root {
+    --container-padding: clamp(1rem, 4vw, 2rem);
+  }
+}
+
+/* Android Mobile */
+@media screen and (max-width: 767px) {
+  :root {
+    --container-padding: clamp(0.75rem, 4vw, 1.5rem);
+  }
+}
+
+/* iPhone Mobile */
+@media screen and (max-width: 359px) {
+  :root {
+    --container-padding: 0.75rem;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./src/components/Footer/Footer.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+.Footer_footer__4vzqH {
+  background-color: var(--color-footer);
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+.Footer_footerInner__6hzif {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+/* Logo Section */
+.Footer_logoSection__60cxm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.Footer_logo__C9vo8 {
+  height: clamp(60px, 12vw, 100px);
+  width: auto;
+}
+
+.Footer_businessName__X2OqO {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+}
+
+/* Links Section */
+.Footer_linksSection__WScWj {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 1000px;
+}
+
+.Footer_linkColumn__QglJ_ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+
+.Footer_linkTitle__tmCil {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  color: var(--color-accent-1);
+  margin-bottom: var(--spacing-sm);
+}
+
+.Footer_link__wByfM {
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  color: var(--color-accent-2);
+  padding: var(--spacing-xs) 0;
+  transition: color 0.3s ease;
+}
+
+.Footer_link__wByfM:hover {
+  color: var(--color-white);
+}
+
+/* Copyright */
+.Footer_copyright__1v3uR {
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  color: var(--color-accent-2);
+  text-align: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-accent-3);
+  width: 100%;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .Footer_linksSection__WScWj {
+    gap: var(--spacing-md);
+  }
+}
+
+/* Android Mobile */
+@media screen and (max-width: 767px) {
+  .Footer_linksSection__WScWj {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .Footer_linkColumn__QglJ_ {
+    width: 100%;
+  }
+}
+
+/* iPhone Mobile */
+@media screen and (max-width: 359px) {
+  .Footer_linksSection__WScWj {
+    gap: var(--spacing-sm);
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./src/components/Navbar/Navbar.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+.Navbar_navbar__UMdIx {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-sm) 0;
+}
+
+.Navbar_navbarInner__CLbsQ {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+/* Logo Container */
+.Navbar_logoContainer__FRG8N {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.Navbar_logo__PiZmU {
+  height: clamp(40px, 8vw, 60px);
+  width: auto;
+}
+
+.Navbar_logoText__e_BoQ {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+}
+
+/* Quick Links */
+.Navbar_quickLinks__urvGy {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.Navbar_quickLinkBtn__4vFYL {
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
+  background-color: var(--color-accent-3);
+  color: var(--color-white);
+  border-radius: 4px;
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.Navbar_quickLinkBtn__4vFYL:hover {
+  background-color: var(--color-accent-2);
+  transform: translateY(-2px);
+}
+
+/* Location Text */
+.Navbar_locationContainer__3_X_e {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.Navbar_locationTitle__t6QAB {
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  font-weight: 600;
+  color: var(--color-accent-1);
+}
+
+.Navbar_locationSubtitle__by5dn {
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  color: var(--color-accent-2);
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .Navbar_navbarInner__CLbsQ {
+    justify-content: center;
+  }
+
+  .Navbar_locationContainer__3_X_e {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    order: 3;
+    padding-top: var(--spacing-xs);
+    border-top: 1px solid var(--color-accent-3);
+  }
+}
+
+/* Android Mobile */
+@media screen and (max-width: 767px) {
+  .Navbar_navbarInner__CLbsQ {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .Navbar_logoContainer__FRG8N {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .Navbar_quickLinks__urvGy {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .Navbar_quickLinkBtn__4vFYL {
+    flex: 1 1;
+    text-align: center;
+    max-width: 150px;
+  }
+
+  .Navbar_locationContainer__3_X_e {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* iPhone Mobile */
+@media screen and (max-width: 359px) {
+  .Navbar_quickLinks__urvGy {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .Navbar_quickLinkBtn__4vFYL {
+    width: 100%;
+    max-width: none;
+  }
+}
+

@@ -1,0 +1,150 @@
+/* ============================
+   GLOBAL STYLES - BLK LOTUS
+   ============================ */
+
+/* CSS Variables */
+:root {
+  /* Brand Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-footer: #192521;
+  --color-accent-1: #cac5b9;
+  --color-accent-2: #6d6c67;
+  --color-accent-3: #564e43;
+  
+  /* Typography */
+  --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 2vw, 1rem);
+  --spacing-md: clamp(1rem, 3vw, 2rem);
+  --spacing-lg: clamp(2rem, 5vw, 4rem);
+  --spacing-xl: clamp(3rem, 8vw, 6rem);
+  
+  /* Container */
+  --container-max-width: 1400px;
+  --container-padding: clamp(1rem, 5vw, 3rem);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Images & Media */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lists */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* Container utility */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Section utility */
+.section {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-content span {
+  padding: 0 var(--spacing-lg);
+  white-space: nowrap;
+}
+
+/* ============================
+   RESPONSIVE BREAKPOINTS
+   Desktop: > 1024px
+   Tablet: 768px - 1024px
+   Android Mobile: 360px - 767px
+   iPhone Mobile: < 360px
+   ============================ */
+
+/* Desktop (default styles above) */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  :root {
+    --container-padding: clamp(1rem, 4vw, 2rem);
+  }
+}
+
+/* Android Mobile */
+@media screen and (max-width: 767px) {
+  :root {
+    --container-padding: clamp(0.75rem, 4vw, 1.5rem);
+  }
+}
+
+/* iPhone Mobile */
+@media screen and (max-width: 359px) {
+  :root {
+    --container-padding: 0.75rem;
+  }
+}
