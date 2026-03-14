@@ -40,10 +40,10 @@ export default function AboutPage() {
               <section className={styles.contentSection}>
                 <h2 className={styles.sectionTitle}>Our Approach</h2>
                 <p className={styles.sectionText}>
-                  We believe every project is unique. Whether it's a wedding,
-                  corporate event, brand campaign, or personal portrait session,
-                  we take the time to understand your vision and bring it to
-                  life with attention to detail and artistic flair.
+                  We believe every project is unique. Whether it&rsquo;s a
+                  wedding, corporate event, brand campaign, or personal portrait
+                  session, we take the time to understand your vision and bring
+                  it to life with attention to detail and artistic flair.
                 </p>
               </section>
 
@@ -52,8 +52,8 @@ export default function AboutPage() {
                 <p className={styles.sectionText}>
                   With years of experience and a portfolio spanning diverse
                   projects, we bring technical expertise and creative vision to
-                  every shoot. We're committed to delivering exceptional results
-                  that exceed your expectations.
+                  every shoot. We&rsquo;re committed to delivering exceptional
+                  results that exceed your expectations.
                 </p>
               </section>
             </div>

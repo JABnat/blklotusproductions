@@ -15,7 +15,7 @@ export default function ContactPage() {
           <header className={styles.pageHeader}>
             <h1 className={styles.pageTitle}>Contact Us</h1>
             <p className={styles.pageSubtitle}>
-              Ready to start your project? We'd love to hear from you.
+              Ready to start your project? We&rsquo;d love to hear from you.
             </p>
           </header>
 

@@ -74,7 +74,9 @@ export default function Testimonials() {
       {/* Marquee Title */}
       <div className={styles.marqueeWrapper}>
         <div className={styles.marquee}>
-          <span className={styles.marqueeText}>Testimonials<sup style={{ fontSize: "0.5em" }}>(4)</sup></span>
+          <span className={styles.marqueeText}>
+            Testimonials<sup style={{ fontSize: "0.5em" }}>(4)</sup>
+          </span>
         </div>
       </div>
 
@@ -83,7 +85,7 @@ export default function Testimonials() {
         <div className={styles.testimonialsContainer}>
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className={styles.testimonialCard}>
-              <span className={styles.quoteIcon}>"</span>
+              <span className={styles.quoteIcon}>&ldquo;</span>
 
               <div className={styles.avatarContainer}>
                 <div className={styles.avatar}>{testimonial.initials}</div>
@@ -93,7 +95,9 @@ export default function Testimonials() {
                 </div>
               </div>
 
-              <p className={styles.testimonialText}>"{testimonial.text}"</p>
+              <p className={styles.testimonialText}>
+                &ldquo;{testimonial.text}&rdquo;
+              </p>
 
               <div className={styles.rating}>
                 {renderStars(testimonial.rating)}

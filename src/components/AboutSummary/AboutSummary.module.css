@@ -1,0 +1,79 @@
+ .aboutSummary {
+	position: relative;
+	width: 100%;
+	display: flex;
+	padding-top: var(--spacing-xl);
+	padding-bottom: var(--spacing-lg);
+}
+
+.aboutSummaryImage {
+	margin-left: 10%;
+	position: relative;
+	z-index: 0;
+}
+
+.aboutSummaryBarContainer {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	width: 100vw;
+	background-color: #ffffff;
+    opacity: 0.65;
+	display: flex;
+	flex-direction: column;
+	color: #000000;
+	z-index: 2;
+}
+
+.aboutSummaryBar {
+	height: 2px;
+	width: 100%;
+	background-color: black;
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
+	z-index: 5;
+	position: relative;
+}
+
+.aboutSummaryText {
+	word-spacing: 6rem;
+	align-self: center;
+	font-weight: 600;
+}
+
+.aboutSectionHeader {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.aboutSectionHeader h2 {
+	width: 40%;
+    font-family: koulen, sans-serif;
+    font-size: clamp(1.5rem, 2vw, 2.75rem);
+    font-weight: 800;
+	margin-left: 10%;
+}
+
+.textButtonContainer {
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+}
+
+.imageButtonContainer {
+	margin-top: var(--spacing-md);
+	display: flex;
+	justify-content: center;
+	border: 1px solid var(--color-accent-1);
+}
+
+.imageButton:hover {
+	background-color: var(--color-accent-1);
+	color: var(--color-black);
+	border-color: var(--color-accent-1);
+}
+
+
+

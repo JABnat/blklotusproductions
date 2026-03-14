@@ -26,6 +26,7 @@ export default function Hero() {
               Get in Touch
             </Link>
           </div>
+         
         </div>
 
         {/* Video Content */}
@@ -43,7 +44,7 @@ export default function Hero() {
               Your browser does not support the video tag.
             </video>
           </div>
-        </div>
+              </div>
       </div>
     </section>
   );

@@ -18,7 +18,10 @@ export default function Navbar() {
             className={styles.logo}
             priority
           />
-          <span className={styles.logoText}>Blk Lotus<br /> Productions</span>
+          <span className={styles.logoText}>
+            Blk Lotus
+            <br /> Productions
+          </span>
         </div>
 
         {/* Quick Links */}
