@@ -13,10 +13,32 @@ export default function AboutSummary() {
           className={styles.aboutSummaryImage}
         />
         <div className={styles.textButtonContainer}>
-          <h2>
-            Blk Lotus Productions realises Photography &amp; Videography that
-            elevates
-          </h2>
+          <div className={styles.containerSummaryTitle}>
+            <h2>
+              Blk Lotus Productions realises Photography &amp; Videography that
+              elevates
+            </h2>
+            <button className={styles.imageButton}>See more</button>
+          </div>
+          <div className={styles.net}>
+            {/* box */}
+            <div className={styles.boxTopRow}>
+              <a href="/page1" className={styles.img1}>
+                <img src="/assets/images/img1.jpg" alt="gradient" />
+              </a>
+              <a href="/page2" className={styles.img2}>
+                <img src="/assets/images/img2.jpg" alt="gradient" />
+              </a>
+            </div>
+            <div className={styles.bottomRow}>
+              <a href="/page4" className={styles.img3}>
+                <img src="/assets/images/img3.jpg" alt="gradient" />
+              </a>
+              <a href="/page5" className={styles.img4}>
+                <img src="/assets/images/img4.jpg" alt="gradient" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div className={styles.aboutSummaryBarContainer}>
