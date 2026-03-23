@@ -398,6 +398,7 @@ button {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  cursor: pointer;
 }
 
 .Navbar_logo__PiZmU {

@@ -108,6 +108,7 @@
 	flex-direction: column;
 	height: 200px;
 	width: 400px;
+	align-self: center;
 }
 
 /* Each clickable box */
@@ -130,29 +131,84 @@
 	height:100px;
 	width:100px;
 	object-fit: cover;
-	background-image: url("/public/assets/images/img1.jpg");
+	border: white solid thin;
 }
 
 .img2 {
 	height: 100px;
 	width: 100px;
 	object-fit: cover;
-	background-image: url("/public/assets/images/img2.jpg");
+	border: white solid thin;
+	padding: 2%;
+	align-content: center;
 }
 
 .img3 {
 	height: 100px;
 	width: 100px;
 	object-fit: cover;
-	background-image: url("/public/assets/images/img3.jpg");
+	border: white solid thin;
 }
 
 .img4 {
 	height: 100px;
 	width: 100px;
 	object-fit: cover;
-	background-image: url("/public/assets/images/img4.jpg");
+	border: white solid thin;
 }
 
+/* Tablet */
+@media screen and (max-width: 1024px) {
+}
 
+/* Android Mobile */
+@media screen and (max-width: 767px) {
+	.aboutSummaryBarContainer{
+		top:100px;
+	}
+
+	.aboutSectionHeader {
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.aboutSummaryImage{
+		align-self: center;
+		border-radius: 20px;
+		margin-left: 0;
+	}
+
+	.textButtonContainer {
+		margin-left:0;
+		place-items: anchor-center;
+	}
+
+	.containerSummaryTitle{
+		place-items: center;
+		text-align: center;
+		margin: 5%;
+	}
+}
+
+/* iPhone Mobile */
+@media screen and (max-width: 359px) {
+	.containerSummaryTitle{
+		place-content: center;
+	}
+
+	.net{
+		flex-direction: row;
+		justify-content: center;
+		margin-top: 30%;
+		margin-bottom: 10%;
+	}
+
+	.boxTopRow {
+		flex-direction: column;
+	}
+
+	.bottomRow{
+		flex-direction: column;
+	}
+}
 

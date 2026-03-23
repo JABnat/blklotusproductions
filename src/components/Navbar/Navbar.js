@@ -8,8 +8,8 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={`container ${styles.navbarInner}`}>
-        {/* Logo Container */}
-        <div className={styles.logoContainer}>
+        {/* Logo Container (clickable) */}
+        <Link href="/" className={styles.logoContainer} aria-label="Home">
           <Image
             src="/assets/logo/blklotus-logo_white.png"
             alt="BLK Lotus Productions Logo"
@@ -22,7 +22,7 @@ export default function Navbar() {
             Blk Lotus
             <br /> Productions
           </span>
-        </div>
+        </Link>
 
         {/* Quick Links */}
         <div className={styles.quickLinks}>

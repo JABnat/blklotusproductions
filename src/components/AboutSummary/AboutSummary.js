@@ -24,18 +24,30 @@ export default function AboutSummary() {
             {/* box */}
             <div className={styles.boxTopRow}>
               <a href="/page1" className={styles.img1}>
-                <img src="/assets/images/img1.jpg" alt="gradient" />
+                <img
+                  src="/assets/images/spotify.png"
+                  style={{ padding: "25%" }}
+                  alt="gradient"
+                />
               </a>
               <a href="/page2" className={styles.img2}>
-                <img src="/assets/images/img2.jpg" alt="gradient" />
+                <img
+                  src="/assets/images/dolby.png"
+                  style={{ padding: "8%" }}
+                  alt="gradient"
+                />
               </a>
             </div>
             <div className={styles.bottomRow}>
               <a href="/page4" className={styles.img3}>
-                <img src="/assets/images/img3.jpg" alt="gradient" />
+                <img src="/assets/images/sony.png" alt="gradient" />
               </a>
               <a href="/page5" className={styles.img4}>
-                <img src="/assets/images/img4.jpg" alt="gradient" />
+                <img
+                  src="/assets/images/lucasfilm.png"
+                  style={{ padding: "10%" }}
+                  alt="gradient"
+                />
               </a>
             </div>
           </div>
