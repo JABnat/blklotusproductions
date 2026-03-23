@@ -50,7 +50,7 @@
 .quickLinkBtn {
   padding: clamp(0.1rem, 0.1vw, 0.1rem) clamp(.1rem, .1vw, 1.5rem);
   color: var(--color-white);
-  border-radius: 50px;
+  border-radius: 1rem;
   font-size: clamp(0.75rem, 1.5vw, 1rem);
   font-weight: 500;
   transition: background-color 0.3s ease, transform 0.2s ease;

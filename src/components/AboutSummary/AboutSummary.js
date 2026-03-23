@@ -10,6 +10,7 @@ export default function AboutSummary() {
           alt="two women dancing bhungra image"
           width={300}
           height={200}
+          borderRadius={"1rem"}
           className={styles.aboutSummaryImage}
         />
         <div className={styles.textButtonContainer}>
@@ -56,7 +57,7 @@ export default function AboutSummary() {
       <div className={styles.aboutSummaryBarContainer}>
         <span className={styles.aboutSummaryBar}></span>
         <p className={styles.aboutSummaryText}>
-          | Aaron | Audrey | IsAbella | Abigail |
+          | Aaron | Audrey | IsAbella | Abigail | Aaron |                    
         </p>
         <span className={styles.aboutSummaryBar}></span>
       </div>
