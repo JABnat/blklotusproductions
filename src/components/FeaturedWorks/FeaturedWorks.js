@@ -18,7 +18,8 @@ export default function FeaturedWorks() {
       {/* Works Container */}
       <div className={styles.containerHeader}>
         <h2 className={styles.featuredTitle}>
-          Take a look at some of the work we've done at BlkLotus Productions
+          Take a look at some of the work we&apos;ve done at BlkLotus
+          Productions
         </h2>
         <button className={styles.contactButton}>Contact Us</button>
       </div>

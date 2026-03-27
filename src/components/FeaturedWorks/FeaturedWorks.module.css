@@ -235,6 +235,15 @@
 
 /* Desktop -> switch to row at narrower widths (<=945px) */
 @media screen and (max-width: 945px) {
+
+  .containerHeader {
+    text-align: center;
+    align-self:center;
+    padding-left:0;
+    margin-bottom: 1rem;
+    align-items:center;
+  }
+  
   .worksContainer {
     flex-direction: column;
     align-items: center; /* align image wrappers to same vertical line */

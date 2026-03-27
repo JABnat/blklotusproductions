@@ -6,10 +6,8 @@ import Link from "next/link";
 const services = [
   {
     id: 1,
-    icon: "📷",
+    number: "(01)",
     title: "Photography",
-    description:
-      "High-quality photography for portraits, events, products, and more.",
     features: [
       "Portrait Sessions",
       "Event Coverage",
@@ -19,11 +17,10 @@ const services = [
   },
   {
     id: 2,
-    icon: "🎬",
+    number: "(02)",
     title: "Videography",
-    description: "Professional video production from concept to final edit.",
     features: [
-      "Wedding Films",
+      "Wedding Videos",
       "Promotional Videos",
       "Music Videos",
       "Documentaries",
@@ -31,9 +28,8 @@ const services = [
   },
   {
     id: 3,
-    icon: "✂️",
+    number: "(03)",
     title: "Editing",
-    description: "Expert post-production services to polish your content.",
     features: [
       "Color Grading",
       "Photo Retouching",
@@ -43,9 +39,8 @@ const services = [
   },
   {
     id: 4,
-    icon: "🎯",
+    number: "(04)",
     title: "Creative Direction",
-    description: "Full creative vision from concept development to execution.",
     features: [
       "Concept Development",
       "Art Direction",
@@ -61,27 +56,39 @@ export default function Services() {
       {/* Marquee Title */}
       <div className={styles.marqueeWrapper}>
         <div className={styles.marquee}>
-          <span className={styles.marqueeText}>Services<sup style={{ fontSize: "0.5em" }}>(3)</sup></span>
+          <span className={styles.marqueeText}>
+            Services<sup style={{ fontSize: "0.5em" }}>(3)</sup>
+          </span>
         </div>
       </div>
 
       {/* Services Container */}
-      <div className={`container`}>
+      <div className="container">
         <div className={styles.servicesContainer}>
           {services.map((service) => (
             <div key={service.id} className={styles.serviceCard}>
-              <div className={styles.iconWrapper}>
-                <span className={styles.icon}>{service.icon}</span>
+              {/* Column 1 — Number */}
+              <div className={styles.column}>
+                <div className={styles.numberWrapper}>
+                  <span className={styles.number}>{service.number}</span>
+                </div>
               </div>
-              <h3 className={styles.serviceTitle}>{service.title}</h3>
-              <p className={styles.serviceDescription}>{service.description}</p>
-              <ul className={styles.features}>
-                {service.features.map((feature, index) => (
-                  <li key={index} className={styles.feature}>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+
+              {/* Column 2 — Title */}
+              <div className={styles.column}>
+                <h3 className={styles.serviceTitle}>{service.title}</h3>
+              </div>
+
+              {/* Column 3 — Features */}
+              <div className={styles.column}>
+                <ul className={styles.features}>
+                  {service.features.map((feature, index) => (
+                    <li key={index} className={styles.feature}>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

@@ -7,7 +7,6 @@
 /* Marquee Title */
 .marqueeWrapper {
   margin-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-accent-3);
 }
 
 .marquee {
@@ -17,19 +16,20 @@
 }
 
 .marqueeText {
-    font-size: clamp(15rem, 5vw, 4rem);
-    font-weight: 100;
-    text-transform: uppercase;
-    color: var(--color-accent-1);
-    padding: 0 var(--spacing-lg);
-    white-space: nowrap;
-    font-family: var(--font-subtitle);
+  font-size: clamp(15rem, 5vw, 4rem);
+  font-weight: 100;
+  text-transform: uppercase;
+  color: var(--color-accent-1);
+  padding: 0 var(--spacing-lg);
+  white-space: nowrap;
+  font-family: var(--font-subtitle);
 }
 
 @keyframes marquee {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -38,79 +38,67 @@
 /* Services Container */
 .servicesContainer {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-lg);
-  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+  justify-content: flex-end;
+  margin-left: auto;
 }
 
 /* Service Card */
 .serviceCard {
-  flex: 1 1 calc(25% - var(--spacing-lg));
-  min-width: 250px;
-  max-width: 300px;
-  padding: var(--spacing-lg);
-  background-color: rgba(25, 37, 33, 0.5);
-  border-radius: 1rem;
-  border: 1px solid var(--color-accent-3);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* vertical centering */
+  justify-content: space-between;
+  /* equal spacing */
+  width: 100%;
+  padding: var(--spacing-lg) 0;
+  border-top: 1px solid var(--color-accent-3);
+  gap: var(--spacing-xl);
+}
+
+/* 3 equal columns */
+.column {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* center horizontally */
+  justify-content: center;
   text-align: center;
-  gap: var(--spacing-md);
-  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.serviceCard:hover {
-  transform: translateY(-8px);
-  border-color: var(--color-accent-1);
-}
-
-/* Service Icon */
-.iconWrapper {
-  width: clamp(60px, 10vw, 80px);
-  height: clamp(60px, 10vw, 80px);
+/* Number */
+.numberWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-accent-3);
-  border-radius: 1rem;
 }
 
-.icon {
+.number {
   font-size: clamp(1.5rem, 3vw, 2rem);
   color: var(--color-accent-1);
 }
 
-/* Service Content */
+/* Title */
 .serviceTitle {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 700;
   color: var(--color-white);
 }
 
-.serviceDescription {
-  font-size: clamp(0.85rem, 1.5vw, 1rem);
-  color: var(--color-accent-2);
-  line-height: 1.6;
-}
-
-/* Service Features */
+/* Features */
 .features {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--spacing-xs);
-  width: 100%;
 }
 
 .feature {
   font-size: clamp(0.75rem, 1.2vw, 0.9rem);
   color: var(--color-accent-1);
-  padding: var(--spacing-xs) 0;
-  border-bottom: 1px solid rgba(202, 197, 185, 0.2);
-}
-
-.feature:last-child {
-  border-bottom: none;
 }
 
 /* CTA Section */
@@ -121,7 +109,6 @@
   gap: var(--spacing-md);
   margin-top: var(--spacing-lg);
   padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--color-accent-3);
 }
 
 .ctaText {
@@ -148,25 +135,24 @@
 /* Tablet */
 @media screen and (max-width: 1024px) {
   .serviceCard {
-    flex: 1 1 calc(50% - var(--spacing-lg));
+    flex-direction: row;
+    gap: var(--spacing-lg);
+  }
+
+  .column {
+    width: 100%;
   }
 }
 
-/* Android Mobile */
-@media screen and (max-width: 767px) {
-  .serviceCard {
-    flex: 1 1 100%;
-    max-width: 100%;
+@media screen and (max-width: 900px){
+  .servicesContainer{
+    width: 100%;
   }
+}
 
+/* Mobile */
+@media screen and (max-width: 767px) {
   .marqueeText {
     padding: 0 var(--spacing-md);
-  }
-}
-
-/* iPhone Mobile */
-@media screen and (max-width: 359px) {
-  .serviceCard {
-    padding: var(--spacing-md);
   }
 }

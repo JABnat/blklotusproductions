@@ -1,14 +1,44 @@
+/* Make section tall enough to scroll through all cards */
 .testimonials {
-  padding: var(--spacing-xl) 0;
+  padding: 0;
   background-color: var(--color-black);
   overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  /* exactly one viewport, no more */
+}
+
+.helix {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: inset(0 0 0 0);
+}
+
+.testimonialCard {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.05s ease-out, opacity 0.05s ease-out;
+  will-change: transform, opacity;
+  background-color: darkcyan;
+    opacity: 0.825;
+    padding: 1rem;
+    border-radius: 25px;
+    width:20%;
 }
 
 /* Marquee Title */
 .marqueeWrapper {
-  margin-bottom: var(--spacing-lg);
   border-bottom: 1px solid var(--color-accent-3);
   padding: var(--spacing-md) 0;
+  position: relative;
+  z-index: 2;
 }
 
 .marquee {
@@ -18,45 +48,23 @@
 }
 
 .marqueeText {
-font-size: clamp(15rem, 5vw, 4rem);
-font-weight: 100;
-text-transform: uppercase;
-color: var(--color-accent-1);
-padding: 0 var(--spacing-lg);
-white-space: nowrap;
-font-family: var(--font-subtitle);
+  font-size: clamp(15rem, 5vw, 4rem);
+  font-weight: 100;
+  text-transform: uppercase;
+  color: var(--color-accent-1);
+  padding: 0 var(--spacing-lg);
+  white-space: nowrap;
+  font-family: var(--font-subtitle);
 }
 
 @keyframes marquee {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
-}
-
-/* Testimonials Container */
-.testimonialsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-lg);
-  justify-content: center;
-}
-
-/* Testimonial Card */
-.testimonialCard {
-  flex: 1 1 calc(33.333% - var(--spacing-lg));
-  min-width: 300px;
-  max-width: 400px;
-  padding: var(--spacing-lg);
-  background-color: rgba(25, 37, 33, 0.3);
-  border-radius: 1rem;
-  border: 1px solid var(--color-accent-3);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  position: relative;
 }
 
 /* Quote Icon */
@@ -131,15 +139,14 @@ font-family: var(--font-subtitle);
 /* Tablet */
 @media screen and (max-width: 1024px) {
   .testimonialCard {
-    flex: 1 1 calc(50% - var(--spacing-lg));
+    width: clamp(260px, 40vw, 360px);
   }
 }
 
 /* Android Mobile */
 @media screen and (max-width: 767px) {
   .testimonialCard {
-    flex: 1 1 100%;
-    max-width: 100%;
+    width: clamp(240px, 70vw, 340px);
   }
 
   .marqueeText {
@@ -151,6 +158,6 @@ font-family: var(--font-subtitle);
 @media screen and (max-width: 359px) {
   .testimonialCard {
     padding: var(--spacing-md);
-    min-width: 100%;
+    width: 85vw;
   }
 }
