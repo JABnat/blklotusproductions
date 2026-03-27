@@ -11,25 +11,44 @@
   background-color: var(--color-black);
 }
 
-.lottieContainer {
-  width: clamp(150px, 40vw, 300px);
-  height: clamp(150px, 40vw, 300px);
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hidden {
-  display: none;
+.logo {
+  width: clamp(100px, 20vw, 180px);
+  height: auto;
+  animation:
+    smoothSpin 3s linear infinite,
+    growFade var(--load-duration, 2s) ease-in-out forwards;
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.15));
 }
 
-.fadeOut {
-  animation: fadeOut 0.5s ease-in-out forwards;
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
+@keyframes smoothSpin {
+  from {
+    transform: rotate(0deg);
   }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes growFade {
+  0% {
+    opacity: 0;
+    scale: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1;
+  }
+
   100% {
     opacity: 0;
-    visibility: hidden;
+    scale: 1.3;
   }
 }
