@@ -50,7 +50,7 @@ const marqueeImages = [
 ];
 
 function Accordion() {
-  const [open, setOpen] = useState(new Set(["01", "02", "03", "04"]));
+  const [open, setOpen] = useState(new Set());
 
   const toggle = (id) => {
     setOpen((prev) => {
@@ -129,7 +129,7 @@ export default function ContactPage() {
         {/* ── TICKER ── */}
         <div className={styles.ticker}>
           <div className={styles.tickerTrack}>
-            {[...Array(4)].map((_, i) => (
+            {[...Array(6)].map((_, i) => (
               <span key={i} className={styles.tickerItem}>
                 Call Me <span className={styles.dot}>·</span> 24/7 Support{" "}
                 <span className={styles.dot}>·</span> Remote{" "}

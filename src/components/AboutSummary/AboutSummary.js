@@ -19,7 +19,6 @@ export default function AboutSummary() {
               Blk Lotus Productions realises Photography &amp; Videography that
               elevates
             </h2>
-            <button className={styles.imageButton}>See more</button>
           </div>
           <div className={styles.net}>
             {/* box */}

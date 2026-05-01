@@ -30,6 +30,7 @@
   letter-spacing: 0.1em;
   color: var(--color-white);
   font-family: var(--font-title);
+  line-height: 2rem;
 }
 
 /* Links Section */

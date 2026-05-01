@@ -98,7 +98,6 @@
     color: var(--color-black);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 0 var(--spacing-lg);
     white-space: nowrap;
 }
 

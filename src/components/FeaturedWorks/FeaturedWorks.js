@@ -26,7 +26,7 @@ export default function FeaturedWorks() {
       <div className={styles.worksContainer}>
         {/* Row 1 — Photography */}
         <div className={styles.workItem}>
-          <div className={styles.imageWrapper}>
+          <Link href="/photos" className={styles.imageWrapper}>
             <img
               src="/assets/images/estuary.jpg"
               alt="Photography"
@@ -38,7 +38,7 @@ export default function FeaturedWorks() {
               className={styles.estuaryOverlay}
             />
             <span className={styles.workCategory}>Photography</span>
-          </div>
+          </Link>
           <span className={styles.workTitle}>
             Photography <sup>(02)</sup>
           </span>
@@ -46,7 +46,7 @@ export default function FeaturedWorks() {
 
         {/* Row 2 — Videography */}
         <div className={styles.workItem}>
-          <div className={styles.imageWrapper}>
+          <Link href="/videos" className={styles.imageWrapper}>
             <img
               src="/assets/images/estuary.jpg"
               alt="Videography"
@@ -58,7 +58,7 @@ export default function FeaturedWorks() {
               className={styles.estuaryOverlay}
             />
             <span className={styles.workCategory}>Videography</span>
-          </div>
+          </Link>
           <span className={styles.workTitle}>
             Videography <sup>(01)</sup>
           </span>
@@ -67,7 +67,7 @@ export default function FeaturedWorks() {
 
       {/* View All Button */}
       <div className={styles.viewAllContainer}>
-        <Link href="/photos" className={styles.viewAllBtn}>
+        <Link href="/works" className={styles.viewAllBtn}>
           View All Works
         </Link>
       </div>

@@ -49,7 +49,7 @@ export default function CustomCursor() {
   if (!isVisible) return null;
 
   const cursorStyle = {
-    transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
+    transform: `translate(calc(${position.x}px - 50%), calc(${position.y}px - 50%))`,
   };
 
   return (
