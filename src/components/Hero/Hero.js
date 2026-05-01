@@ -40,7 +40,7 @@ export default function Hero() {
               playsInline
               preload="auto"
             >
-              <source src="https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/hero.mp4" type="video/mp4" />
+              <source src="https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/6884385-uhd_4096_2160_25fps.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
