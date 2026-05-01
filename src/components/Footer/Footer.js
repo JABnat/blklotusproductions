@@ -17,7 +17,11 @@ export default function Footer() {
             height={100}
             className={styles.logo}
           />
-          <span className={styles.businessName}>Blk Lotus<br /> Productions</span>
+          <span className={styles.businessName}>
+            <span className={styles.nameThick}>BLK</span><span className={styles.nameThin}>LOTUS</span>
+            <br />
+            <span className={styles.nameThin}>PRODUCTIONS</span>
+          </span>
         </div>
 
         {/* Links Section - 4 Columns */}
