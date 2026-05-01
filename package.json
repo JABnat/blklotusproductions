@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "start": "next dev",
     "lint": "next lint"
   },
@@ -17,6 +18,7 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.19.5",
     "wrangler": "^4.87.0"
   }
 }
