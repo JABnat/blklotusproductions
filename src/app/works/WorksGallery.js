@@ -2,22 +2,23 @@
 
 import { useState } from "react";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import MediaGrid from "@/components/MediaGrid/MediaGrid";
 import styles from "./works.module.css";
 import pageStyles from "@/styles/pages.module.css";
 
 const works = [
-  { id: 1,  title: "Spring Wedding",          medium: "photo", eventType: "wedding"        },
-  { id: 2,  title: "Mountain Wedding Film",   medium: "video", eventType: "wedding"        },
-  { id: 3,  title: "Short Film – Echoes",     medium: "video", eventType: "film"           },
-  { id: 4,  title: "Family Reunion 2024",     medium: "photo", eventType: "family-reunion" },
-  { id: 5,  title: "Music Video – Rise",      medium: "video", eventType: "music"          },
-  { id: 6,  title: "Maternity Session",       medium: "photo", eventType: "maternity"      },
-  { id: 7,  title: "Documentary Reel",        medium: "video", eventType: "film"           },
-  { id: 8,  title: "Johnson Family Reunion",  medium: "photo", eventType: "family-reunion" },
-  { id: 9,  title: "Newborn & Maternity",     medium: "photo", eventType: "maternity"      },
-  { id: 10, title: "Music Video – Bloom",     medium: "video", eventType: "music"          },
-  { id: 11, title: "Wedding Portraits",       medium: "photo", eventType: "wedding"        },
-  { id: 12, title: "Indie Film – Roots",      medium: "video", eventType: "film"           },
+  { id: 1,  title: "Mountain Wedding",  medium: "photo", eventType: "wedding",        src: "/assets/portfolio/photos/mountianWedding.jpg"                },
+  { id: 2,  title: "Family Reunion",    medium: "photo", eventType: "family-reunion", src: "/assets/portfolio/photos/familyReunion.jpg"                   },
+  { id: 3,  title: "Maternity Session", medium: "photo", eventType: "maternity",      src: "/assets/portfolio/photos/maternity.jpg"                        },
+  { id: 4,  title: "Maternity Session", medium: "photo", eventType: "maternity",      src: "/assets/portfolio/photos/maternity2.jpg"                       },
+  { id: 5,  title: "Music Video",       medium: "photo", eventType: "music",          src: "/assets/portfolio/photos/musicVideo.jpg"                       },
+  { id: 6,  title: "Music Video",       medium: "photo", eventType: "music",          src: "/assets/portfolio/photos/musivVideo2.jpg"                      },
+  { id: 7,  title: "Documentary",       medium: "photo", eventType: "film",           src: "/assets/portfolio/photos/documentary.jpg"                      },
+  { id: 8,  title: "Short Film",        medium: "photo", eventType: "film",           src: "/assets/portfolio/photos/shortFilm.jpg"                        },
+  { id: 9,  title: "Wedding Film",      medium: "video", eventType: "wedding",        src: "/assets/portfolio/videos/7969935-uhd_4096_2160_25fps.mp4"  },
+  { id: 10, title: "Music Video",       medium: "video", eventType: "music",          src: "/assets/portfolio/videos/8684480-hd_1080_1920_25fps.mp4"   },
+  { id: 11, title: "Documentary",       medium: "video", eventType: "film",           src: "/assets/portfolio/videos/8912974-uhd_3840_2160_25fps.mp4"   },
+  { id: 12, title: "Short Film",        medium: "video", eventType: "film",           src: "/assets/portfolio/videos/8042851-uhd_2160_4096_25fps.mp4"   },
 ];
 
 const MEDIUM_OPTIONS  = ["all", "photo", "video"];
@@ -89,17 +90,10 @@ export default function WorksGallery() {
             </div>
           </div>
 
-          <div className={pageStyles.mediaContainer}>
-            {filtered.length > 0 ? (
-              filtered.map((item) => (
-                <div key={item.id} className={pageStyles.mediaItem}>
-                  <span>{item.title}</span>
-                </div>
-              ))
-            ) : (
-              <p className={styles.noResults}>No works match the selected filters.</p>
-            )}
-          </div>
+          <MediaGrid
+            items={filtered}
+            noResultsMessage="No works match the selected filters."
+          />
         </div>
       </div>
     </PageWrapper>

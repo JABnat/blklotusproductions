@@ -1,4 +1,5 @@
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import MediaGrid from "@/components/MediaGrid/MediaGrid";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = {
@@ -8,15 +9,10 @@ export const metadata = {
 };
 
 const videos = [
-  { id: 1, title: "Mountain Wedding Film" },
-  { id: 2, title: "Brand Documentary" },
-  { id: 3, title: "Event Highlights Reel" },
-  { id: 4, title: "Music Video Production" },
-  { id: 5, title: "Corporate Promo" },
-  { id: 6, title: "Engagement Story" },
-  { id: 7, title: "Product Launch" },
-  { id: 8, title: "Travel Documentary" },
-  { id: 9, title: "Anniversary Film" },
+  { id: 1, title: "Wedding Film",      medium: "video", eventType: "wedding", src: "/assets/portfolio/videos/7969935-uhd_4096_2160_25fps.mp4"  },
+  { id: 2, title: "Music Video",       medium: "video", eventType: "music",   src: "/assets/portfolio/videos/8684480-hd_1080_1920_25fps.mp4"   },
+  { id: 3, title: "Documentary",       medium: "video", eventType: "film",    src: "/assets/portfolio/videos/8912974-uhd_3840_2160_25fps.mp4"   },
+  { id: 4, title: "Short Film",        medium: "video", eventType: "film",    src: "/assets/portfolio/videos/8042851-uhd_2160_4096_25fps.mp4"   },
 ];
 
 export default function VideosPage() {
@@ -30,15 +26,7 @@ export default function VideosPage() {
               Cinematic storytelling that captures the essence of your moments.
             </p>
           </header>
-
-          <div className={styles.mediaContainer}>
-            {videos.map((video) => (
-              <div key={video.id} className={styles.mediaItem}>
-                {/* Placeholder video - replace with actual content */}
-                <span>Placeholder Video: {video.title}</span>
-              </div>
-            ))}
-          </div>
+          <MediaGrid items={videos} />
         </div>
       </div>
     </PageWrapper>

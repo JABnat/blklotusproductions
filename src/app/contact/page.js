@@ -162,16 +162,6 @@ export default function ContactPage() {
               </div>
             ))}
           </div>
-          {/* Bottom label bar */}
-          <div className={styles.photoLabels}>
-            {["Independent", "Overview", "Multidisciplinary", "Focused"].map(
-              (label) => (
-                <span key={label} className={styles.photoLabel}>
-                  {label}
-                </span>
-              ),
-            )}
-          </div>
         </div>
 
         {/* ── BIG CTA ── */}

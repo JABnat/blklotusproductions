@@ -196,7 +196,7 @@
     overflow: hidden;
     background-color: #0d1f1a;
     /* dark teal like reference */
-    padding: var(--spacing-xl) 0 0;
+    padding: var(--spacing-xl);
     position: relative;
 }
 

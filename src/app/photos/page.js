@@ -1,4 +1,5 @@
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import MediaGrid from "@/components/MediaGrid/MediaGrid";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = {
@@ -8,18 +9,14 @@ export const metadata = {
 };
 
 const photos = [
-  { id: 1, title: "Portrait Session" },
-  { id: 2, title: "Wedding Photography" },
-  { id: 3, title: "Product Shoot" },
-  { id: 4, title: "Lifestyle Photography" },
-  { id: 5, title: "Corporate Headshots" },
-  { id: 6, title: "Event Coverage" },
-  { id: 7, title: "Fashion Editorial" },
-  { id: 8, title: "Real Estate Photography" },
-  { id: 9, title: "Nature & Landscape" },
-  { id: 10, title: "Golden Hour Portraits" },
-  { id: 11, title: "Engagement Session" },
-  { id: 12, title: "Brand Photography" },
+  { id: 1, title: "Mountain Wedding",   medium: "photo", eventType: "wedding",        src: "/assets/portfolio/photos/mountianWedding.jpg" },
+  { id: 2, title: "Family Reunion",     medium: "photo", eventType: "family-reunion", src: "/assets/portfolio/photos/familyReunion.jpg"   },
+  { id: 3, title: "Maternity Session",  medium: "photo", eventType: "maternity",      src: "/assets/portfolio/photos/maternity.jpg"        },
+  { id: 4, title: "Maternity Session",  medium: "photo", eventType: "maternity",      src: "/assets/portfolio/photos/maternity2.jpg"       },
+  { id: 5, title: "Music Video",        medium: "photo", eventType: "music",          src: "/assets/portfolio/photos/musicVideo.jpg"       },
+  { id: 6, title: "Music Video",        medium: "photo", eventType: "music",          src: "/assets/portfolio/photos/musivVideo2.jpg"      },
+  { id: 7, title: "Documentary",        medium: "photo", eventType: "film",           src: "/assets/portfolio/photos/documentary.jpg"      },
+  { id: 8, title: "Short Film",         medium: "photo", eventType: "film",           src: "/assets/portfolio/photos/shortFilm.jpg"        },
 ];
 
 export default function PhotosPage() {
@@ -33,15 +30,7 @@ export default function PhotosPage() {
               Timeless imagery that captures your most precious moments.
             </p>
           </header>
-
-          <div className={styles.mediaContainer}>
-            {photos.map((photo) => (
-              <div key={photo.id} className={styles.mediaItem}>
-                {/* Placeholder image - replace with actual content */}
-                <span>Placeholder Image: {photo.title}</span>
-              </div>
-            ))}
-          </div>
+          <MediaGrid items={photos} />
         </div>
       </div>
     </PageWrapper>
