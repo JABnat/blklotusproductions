@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "start": "next dev",
+    "start": ". ~/.nvm/nvm.sh && nvm use && next dev",
     "lint": "next lint"
   },
   "dependencies": {

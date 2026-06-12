@@ -10,7 +10,6 @@ export default function AboutSummary() {
           alt="two women dancing bhungra image"
           width={300}
           height={200}
-          borderRadius={"1rem"}
           className={styles.aboutSummaryImage}
         />
         <div className={styles.textButtonContainer}>

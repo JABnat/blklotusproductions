@@ -5,3 +5,12 @@ node_modules
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Large media assets — served from R2/cloud storage, not git
+public/assets/portfolio/videos/
+public/assets/portfolio/photos/
+
+# macOS metadata
+.DS_Store
+public/**/.DS_Store
+public/assets/**/.DS_Store

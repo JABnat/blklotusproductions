@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/natasha/workspace/BLKlotus/src/app/layout\":[\"static/media/26d0ba92e140f0dc-s.p.woff2\",\"static/media/3e5a4adce6899c89-s.p.woff2\",\"static/media/370ab0dc7c9da1a6-s.p.ttf\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

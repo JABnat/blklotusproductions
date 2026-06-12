@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${bicroad.variable} ${koulen.variable} ${instrumentSans.variable} ${dmMono.variable} ${zenKaku.variable} ${exo.variable}`}
     >
-      <body>
+      <body suppressHydrationWarning>
         <CustomCursor />
         <Navbar />
         <main>{children}</main>
