@@ -60,6 +60,30 @@
   width: 100%;
 }
 
+.sectionDivider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.sectionDivider::before,
+.sectionDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-accent-3);
+}
+
+.sectionDividerLabel {
+  font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+  color: var(--color-accent-2);
+  font-family: var(--font-subtitle);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
 .noResults {
   width: 100%;
   text-align: center;

@@ -1,6 +1,5 @@
 import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import SiteShell from "@/components/SiteShell/SiteShell";
 import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import localFont from "next/font/local";
 import { Koulen, Instrument_Sans, DM_Mono, Zen_Kaku_Gothic_New, Exo } from "next/font/google";
@@ -9,6 +8,9 @@ export const metadata = {
   title: "BLK Lotus | Photography & Videography",
   description:
     "Professional photography and videography services based in San Luis Obispo, California. Available for travel within the US.",
+  icons: {
+    icon: "/assets/logo/blklotus-logo-black.webp",
+  },
 };
 
 const bicroad = localFont({
@@ -61,9 +63,7 @@ export default function RootLayout({ children }) {
     >
       <body suppressHydrationWarning>
         <CustomCursor />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

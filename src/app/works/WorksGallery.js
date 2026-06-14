@@ -59,11 +59,6 @@ const works = [
   { id: 48, title: "Sweet 16th",                  medium: "photo", eventType: "sweet-16th",         src: "/assets/portfolio/photos/Sweet%2016th/IMG_0340.jpg" },
   { id: 49, title: "Sweet 16th",                  medium: "photo", eventType: "sweet-16th",         src: "/assets/portfolio/photos/Sweet%2016th/IMG_8450-Enhanced-NR.jpg" },
   { id: 50, title: "Sweet 16th",                  medium: "photo", eventType: "sweet-16th",         src: "/assets/portfolio/photos/Sweet%2016th/IMG_9296.jpg" },
-  // Videos – R2
-  { id: 51, title: "Wedding Film",                       medium: "video", eventType: "wedding",         src: "https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/7969935-uhd_4096_2160_25fps.mp4" },
-  { id: 52, title: "Music Video",                        medium: "video", eventType: "concert",         src: "https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/8684480-hd_1080_1920_25fps.mp4" },
-  { id: 53, title: "Documentary",                        medium: "video", eventType: "film",            src: "https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/8912974-uhd_3840_2160_25fps.mp4" },
-  { id: 54, title: "Short Film",                         medium: "video", eventType: "film",            src: "https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/8042851-uhd_2160_4096_25fps.mp4" },
   // IG Reels – Community
   { id: 55, title: "Birthday Benefit Concert",           medium: "video", eventType: "community",       src: "/assets/portfolio/videos/IG%20REELS/Community/BIRTHDAY%20BENEFIT%20CONCERT%20(V1).mp4" },
   { id: 56, title: "Redlands Community",                 medium: "video", eventType: "community",       src: "/assets/portfolio/videos/IG%20REELS/Community/Redlands%20Community.mp4" },
@@ -91,7 +86,7 @@ const works = [
 ];
 
 const MEDIUM_OPTIONS = ["all", "photo", "video"];
-const EVENT_OPTIONS  = ["all", "concert", "community", "family-celebration", "fashion", "indian-festival", "product-shots", "seniors-photo", "sweet-16th", "wedding", "film"];
+const EVENT_OPTIONS  = ["all", "concert", "community", "family-celebration", "fashion", "indian-festival", "product-shots", "seniors-photo", "sweet-16th"];
 
 const CONCERT_ARTIST_OPTIONS = [
   "all",
@@ -111,8 +106,6 @@ const labelMap = {
   "indian-festival":      "Indian Festival",
   "seniors-photo":        "Senior's Photo",
   "sweet-16th":           "Sweet 16th",
-  wedding:                "Wedding",
-  film:                   "Film",
   community:              "Community",
   fashion:                "Fashion",
   "product-shots":        "Product Shots",
@@ -142,6 +135,19 @@ export default function WorksGallery() {
       w.concertArtist === concertArtist;
     return mediumMatch && eventMatch && artistMatch;
   });
+
+  function groupByEventType(items) {
+    const order = [];
+    const map = {};
+    for (const item of items) {
+      if (!map[item.eventType]) {
+        map[item.eventType] = [];
+        order.push(item.eventType);
+      }
+      map[item.eventType].push(item);
+    }
+    return order.map((key) => ({ key, items: map[key] }));
+  }
 
   return (
     <PageWrapper>
@@ -205,10 +211,21 @@ export default function WorksGallery() {
             )}
           </div>
 
-          <MediaGrid
-            items={filtered}
-            noResultsMessage="No works match the selected filters."
-          />
+          {eventType === "all" ? (
+            groupByEventType(filtered).map((group) => (
+              <div key={group.key}>
+                <div className={styles.sectionDivider}>
+                  <span className={styles.sectionDividerLabel}>{labelMap[group.key]}</span>
+                </div>
+                <MediaGrid items={group.items} />
+              </div>
+            ))
+          ) : (
+            <MediaGrid
+              items={filtered}
+              noResultsMessage="No works match the selected filters."
+            />
+          )}
         </div>
       </div>
     </PageWrapper>

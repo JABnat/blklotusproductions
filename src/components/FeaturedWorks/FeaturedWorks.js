@@ -21,7 +21,7 @@ export default function FeaturedWorks() {
           Take a look at some of the work we&apos;ve done at BlkLotus
           Productions
         </h2>
-        <button className={styles.contactButton}>Contact Us</button>
+        <Link href="/contact" className={styles.contactButton}>Contact Us</Link>
       </div>
       <div className={styles.worksContainer}>
         {/* Row 1 — Photography */}

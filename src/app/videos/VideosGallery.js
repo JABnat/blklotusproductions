@@ -7,11 +7,6 @@ import styles from "./videos.module.css";
 import pageStyles from "@/styles/pages.module.css";
 
 const videos = [
-  // R2 – legacy
-  { id: 1,  title: "Wedding Film",             medium: "video", eventType: "wedding",         src: "https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/7969935-uhd_4096_2160_25fps.mp4" },
-  { id: 2,  title: "Music Video",              medium: "video", eventType: "concert",         src: "https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/8684480-hd_1080_1920_25fps.mp4" },
-  { id: 3,  title: "Documentary",              medium: "video", eventType: "film",            src: "https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/8912974-uhd_3840_2160_25fps.mp4" },
-  { id: 4,  title: "Short Film",               medium: "video", eventType: "film",            src: "https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/8042851-uhd_2160_4096_25fps.mp4" },
   // IG Reels – Community
   { id: 5,  title: "Birthday Benefit Concert", medium: "video", eventType: "community",       src: "/assets/portfolio/videos/IG%20REELS/Community/BIRTHDAY%20BENEFIT%20CONCERT%20(V1).mp4" },
   { id: 6,  title: "Redlands Community",       medium: "video", eventType: "community",       src: "/assets/portfolio/videos/IG%20REELS/Community/Redlands%20Community.mp4" },
@@ -38,7 +33,7 @@ const videos = [
   { id: 23, title: "ZGcine",                   medium: "video", eventType: "product-shots",   src: "/assets/portfolio/videos/IG%20REELS/Product%20Shots/ZGcine.mov" },
 ];
 
-const EVENT_OPTIONS = ["all", "concert", "community", "fashion", "indian-festival", "product-shots", "wedding", "film"];
+const EVENT_OPTIONS = ["all", "concert", "community", "fashion", "indian-festival", "product-shots"];
 
 const labelMap = {
   all:                 "All",
@@ -47,8 +42,6 @@ const labelMap = {
   fashion:             "Fashion",
   "indian-festival":   "Indian Festival",
   "product-shots":     "Product Shots",
-  wedding:             "Wedding",
-  film:                "Film",
 };
 
 export default function VideosGallery() {
