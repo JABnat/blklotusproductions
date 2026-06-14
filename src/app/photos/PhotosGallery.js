@@ -124,6 +124,7 @@ export default function PhotosGallery() {
                     key={opt}
                     className={`${styles.pill} ${eventType === opt ? styles.pillActive : ""}`}
                     onClick={() => handleEventType(opt)}
+                    aria-pressed={eventType === opt}
                   >
                     {labelMap[opt]}
                   </button>
@@ -140,6 +141,7 @@ export default function PhotosGallery() {
                       key={opt}
                       className={`${styles.pill} ${concertArtist === opt ? styles.pillActive : ""}`}
                       onClick={() => setConcertArtist(opt)}
+                      aria-pressed={concertArtist === opt}
                     >
                       {labelMap[opt]}
                     </button>

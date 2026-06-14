@@ -34,7 +34,7 @@ export default function FeaturedWorks() {
             />
             <img
               src="/assets/images/aurora.webp"
-              alt="Estuary Overlay"
+              alt=""
               className={styles.estuaryOverlay}
             />
             <span className={styles.workCategory}>Photography</span>
@@ -54,7 +54,7 @@ export default function FeaturedWorks() {
             />
             <img
               src="/assets/images/aurora.webp"
-              alt="Estuary Overlay"
+              alt=""
               className={styles.estuaryOverlay}
             />
             <span className={styles.workCategory}>Videography</span>

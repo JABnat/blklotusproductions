@@ -120,6 +120,34 @@ button {
   }
 }
 
+/* ============================
+   FOCUS & REDUCED MOTION
+   ============================ */
+
+/* Visible keyboard focus ring for all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--color-accent-1);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Hide focus ring for mouse/touch users who don't need it */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Halt all CSS animations and transitions for users who request it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Container utility */
 .container {
   width: 100%;

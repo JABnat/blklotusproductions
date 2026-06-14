@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar} aria-label="Main navigation">
       <div className={`container ${styles.navbarInner}`}>
         {/* Logo Container (clickable) */}
         <Link href="/" className={styles.logoContainer} aria-label="Home">

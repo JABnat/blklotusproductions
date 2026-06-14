@@ -71,6 +71,7 @@ export default function VideosGallery() {
                     key={opt}
                     className={`${styles.pill} ${eventType === opt ? styles.pillActive : ""}`}
                     onClick={() => setEventType(opt)}
+                    aria-pressed={eventType === opt}
                   >
                     {labelMap[opt]}
                   </button>

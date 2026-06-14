@@ -30,7 +30,7 @@ export default function Hero() {
         </div>
 
         {/* Video Content */}
-        <div className={styles.videoContent}>
+        <div className={styles.videoContent} aria-hidden="true">
           <div className={styles.videoWrapper}>
             <video
               className={styles.video}

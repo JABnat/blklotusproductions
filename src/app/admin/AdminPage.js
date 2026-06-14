@@ -123,26 +123,32 @@ export default function AdminPage() {
           </Link>
           <h1 className={styles.loginTitle}>The Darkroom</h1>
           <div className={styles.field}>
-            <label className={styles.label}>Username</label>
+            <label htmlFor="admin-username" className={styles.label}>Username</label>
             <input
+              id="admin-username"
               className={styles.input}
               type="text"
               autoComplete="username"
               value={username}
               onChange={(e) => { setUsername(e.target.value); setError(""); }}
+              aria-required="true"
+              aria-describedby={error ? "admin-error" : undefined}
             />
           </div>
           <div className={styles.field}>
-            <label className={styles.label}>Password</label>
+            <label htmlFor="admin-password" className={styles.label}>Password</label>
             <input
+              id="admin-password"
               className={styles.input}
               type="password"
               autoComplete="current-password"
               value={password}
               onChange={(e) => { setPassword(e.target.value); setError(""); }}
+              aria-required="true"
+              aria-describedby={error ? "admin-error" : undefined}
             />
           </div>
-          {error && <p className={styles.error}>{error}</p>}
+          {error && <p id="admin-error" className={styles.error} role="alert">{error}</p>}
           <button className={styles.loginBtn} type="submit">Enter</button>
         </form>
       </div>

@@ -72,6 +72,8 @@ export default function Testimonials() {
 
   // HELIX EFFECT
 useEffect(() => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
   const helix = document.getElementById("helix");
   const section = document.getElementById("testimonials");
   if (!helix || !section) return;

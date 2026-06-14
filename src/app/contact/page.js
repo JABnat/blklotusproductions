@@ -73,19 +73,21 @@ function Accordion() {
     <div className={styles.accordion}>
       {faqs.map(({ id, q, a }) => {
         const isOpen = open.has(id);
+        const panelId = `faq-panel-${id}`;
         return (
-          <div
-            key={id}
-            className={styles.accordionItem}
-            onClick={() => toggle(id)}
-          >
-            <div className={styles.accordionHeader}>
-              <span className={styles.accordionNum}>{id}</span>
+          <div key={id} className={styles.accordionItem}>
+            <button
+              className={styles.accordionHeader}
+              onClick={() => toggle(id)}
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+            >
+              <span className={styles.accordionNum} aria-hidden="true">{id}</span>
               <span className={styles.accordionQ}>{q}</span>
-              <span className={styles.accordionIcon}>{isOpen ? "−" : "+"}</span>
-            </div>
+              <span className={styles.accordionIcon} aria-hidden="true">{isOpen ? "−" : "+"}</span>
+            </button>
             {isOpen && (
-              <div className={styles.accordionBody}>
+              <div id={panelId} className={styles.accordionBody} role="region">
                 <p>{a}</p>
               </div>
             )}
@@ -179,36 +181,43 @@ function ContactForm() {
 
       <div className={styles.formRow}>
         <div className={styles.formGroup}>
-          <label className={styles.formLabel}>Name *</label>
+          <label htmlFor="contact-name" className={styles.formLabel}>Name *</label>
           <input
+            id="contact-name"
             className={styles.formInput}
             type="text"
             autoComplete="name"
             value={fields.name}
             onChange={set("name")}
+            aria-required="true"
+            aria-describedby={errors.name ? "contact-name-error" : undefined}
           />
           {errors.name && (
-            <span className={styles.formError}>{errors.name}</span>
+            <span id="contact-name-error" className={styles.formError} role="alert">{errors.name}</span>
           )}
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.formLabel}>Email *</label>
+          <label htmlFor="contact-email" className={styles.formLabel}>Email *</label>
           <input
+            id="contact-email"
             className={styles.formInput}
             type="email"
             autoComplete="email"
             value={fields.email}
             onChange={set("email")}
+            aria-required="true"
+            aria-describedby={errors.email ? "contact-email-error" : undefined}
           />
           {errors.email && (
-            <span className={styles.formError}>{errors.email}</span>
+            <span id="contact-email-error" className={styles.formError} role="alert">{errors.email}</span>
           )}
         </div>
       </div>
 
       <div className={styles.formGroup}>
-        <label className={styles.formLabel}>Project Type</label>
+        <label htmlFor="contact-project" className={styles.formLabel}>Project Type</label>
         <select
+          id="contact-project"
           className={styles.formSelect}
           value={fields.projectType}
           onChange={set("projectType")}
@@ -223,15 +232,18 @@ function ContactForm() {
       </div>
 
       <div className={styles.formGroup}>
-        <label className={styles.formLabel}>Message *</label>
+        <label htmlFor="contact-message" className={styles.formLabel}>Message *</label>
         <textarea
+          id="contact-message"
           className={styles.formTextarea}
           value={fields.message}
           onChange={set("message")}
+          aria-required="true"
+          aria-describedby={errors.message ? "contact-message-error" : undefined}
           placeholder="Tell me about your project, preferred dates, and any specific ideas…"
         />
         {errors.message && (
-          <span className={styles.formError}>{errors.message}</span>
+          <span id="contact-message-error" className={styles.formError} role="alert">{errors.message}</span>
         )}
       </div>
 
@@ -275,15 +287,13 @@ export default function ContactPage() {
               <span>Follow me on Instagram</span>
               <span className={styles.arrow}>↗</span>
             </a>
-            <span className={styles.contactRow}>
+            <a
+              href="mailto:contact@blklotus-productions.com"
+              className={styles.contactRow}
+            >
               <span>contact@blklotus-productions.com</span>
-              <a
-                href="mailto:contact@blklotus-productions.com"
-                className={styles.arrow}
-              >
-                ↗
-              </a>
-            </span>
+              <span className={styles.arrow} aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
 

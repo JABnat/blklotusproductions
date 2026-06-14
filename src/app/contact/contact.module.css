@@ -158,6 +158,13 @@
     grid-template-columns: 2.5rem 1fr auto;
     align-items: center;
     gap: var(--spacing-sm);
+    width: 100%;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    padding: 0;
 }
 
 .accordionNum {
