@@ -1,21 +1,41 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import styles from "./MediaGrid.module.css";
 import pageStyles from "@/styles/pages.module.css";
 
 export default function MediaGrid({ items, noResultsMessage }) {
   const [selected, setSelected] = useState(null);
+  const pushedState = useRef(false);
 
-  const close = useCallback(() => setSelected(null), []);
+  const close = useCallback(() => {
+    setSelected(null);
+    if (pushedState.current) {
+      pushedState.current = false;
+      window.history.back();
+    }
+  }, []);
+
+  const open = useCallback((item) => {
+    setSelected(item);
+    window.history.pushState({ lightbox: true }, "");
+    pushedState.current = true;
+  }, []);
 
   useEffect(() => {
     if (!selected) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
+    // Back button: popstate fires when user presses back
+    const onPop = () => {
+      pushedState.current = false;
+      setSelected(null);
+    };
     document.addEventListener("keydown", onKey);
+    window.addEventListener("popstate", onPop);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
+      window.removeEventListener("popstate", onPop);
       document.body.style.overflow = "";
     };
   }, [selected, close]);
@@ -33,7 +53,7 @@ export default function MediaGrid({ items, noResultsMessage }) {
           <div
             key={item.id}
             className={`${pageStyles.mediaItem} ${styles.clickable}`}
-            onClick={() => setSelected(item)}
+            onClick={() => open(item)}
           >
             {item.src ? (
               item.medium === "video" ? (
@@ -53,6 +73,7 @@ export default function MediaGrid({ items, noResultsMessage }) {
 
       {selected && (
         <div className={styles.overlay} onClick={close}>
+          <button className={styles.closeBtn} onClick={close} aria-label="Close">✕</button>
           <div className={styles.overlayCard} onClick={(e) => e.stopPropagation()}>
             {selected.src ? (
               selected.medium === "video" ? (

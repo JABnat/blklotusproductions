@@ -28,7 +28,7 @@ const faqs = [
   {
     id: "05",
     q: "How do I book a session?",
-    a: "Reach out via email or Instagram with your project details and preferred dates. I'll get back to you within 24 hours.",
+    a: "Reach out via the form below or Instagram with your project details and preferred dates. I'll get back to you within 24 hours.",
   },
   {
     id: "06",
@@ -37,16 +37,25 @@ const faqs = [
   },
 ];
 
-// Swap these paths for your actual portfolio images
 const marqueeImages = [
-  "/assets/images/portfolio-1.jpg",
-  "/assets/images/portfolio-2.jpg",
-  "/assets/images/portfolio-3.jpg",
-  "/assets/images/portfolio-4.jpg",
-  "/assets/images/portfolio-5.jpg",
-  "/assets/images/portfolio-6.jpg",
-  "/assets/images/portfolio-7.jpg",
-  "/assets/images/portfolio-8.jpg",
+  "/assets/images/estuary.jpg",
+  "/assets/images/aurora.webp",
+  "/assets/images/estuary.jpg",
+  "/assets/images/aurora.webp",
+  "/assets/images/estuary.jpg",
+  "/assets/images/aurora.webp",
+  "/assets/images/estuary.jpg",
+  "/assets/images/aurora.webp",
+];
+
+const PROJECT_TYPES = [
+  "Photography",
+  "Videography",
+  "Photo + Video",
+  "Music Video",
+  "Brand Content",
+  "Wedding Coverage",
+  "Other",
 ];
 
 function Accordion() {
@@ -87,6 +96,160 @@ function Accordion() {
   );
 }
 
+function ContactForm() {
+  const [fields, setFields] = useState({
+    name: "",
+    email: "",
+    projectType: "",
+    message: "",
+    honeypot: "",
+  });
+  const [errors, setErrors]       = useState({});
+  const [status, setStatus]       = useState("idle"); // idle | submitting | success | error
+  const [serverError, setServerError] = useState("");
+
+  const set = (key) => (e) =>
+    setFields((f) => ({ ...f, [key]: e.target.value }));
+
+  function validate() {
+    const e = {};
+    if (!fields.name.trim()) e.name = "Name is required.";
+    if (!fields.email.trim()) e.email = "Email is required.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email))
+      e.email = "Enter a valid email address.";
+    if (!fields.message.trim()) e.message = "Message is required.";
+    else if (fields.message.trim().length < 10)
+      e.message = "Message must be at least 10 characters.";
+    return e;
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
+    }
+    setErrors({});
+    setStatus("submitting");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setServerError(data.error || "Something went wrong. Please try again.");
+        setStatus("error");
+      } else {
+        setStatus("success");
+      }
+    } catch {
+      setServerError("Network error. Please check your connection and try again.");
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className={styles.formSuccess}>
+        <p className={styles.formSuccessTitle}>Message Sent</p>
+        <p className={styles.formSuccessText}>
+          Thanks for reaching out. I&apos;ll get back to you within 24 hours.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form className={styles.form} onSubmit={handleSubmit} noValidate>
+      {/* Honeypot: hidden from real users, bots fill it in */}
+      <input
+        className={styles.honeypot}
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        value={fields.honeypot}
+        onChange={set("honeypot")}
+        aria-hidden="true"
+      />
+
+      <div className={styles.formRow}>
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel}>Name *</label>
+          <input
+            className={styles.formInput}
+            type="text"
+            autoComplete="name"
+            value={fields.name}
+            onChange={set("name")}
+          />
+          {errors.name && (
+            <span className={styles.formError}>{errors.name}</span>
+          )}
+        </div>
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel}>Email *</label>
+          <input
+            className={styles.formInput}
+            type="email"
+            autoComplete="email"
+            value={fields.email}
+            onChange={set("email")}
+          />
+          {errors.email && (
+            <span className={styles.formError}>{errors.email}</span>
+          )}
+        </div>
+      </div>
+
+      <div className={styles.formGroup}>
+        <label className={styles.formLabel}>Project Type</label>
+        <select
+          className={styles.formSelect}
+          value={fields.projectType}
+          onChange={set("projectType")}
+        >
+          <option value="">Select a service…</option>
+          {PROJECT_TYPES.map((t) => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className={styles.formGroup}>
+        <label className={styles.formLabel}>Message *</label>
+        <textarea
+          className={styles.formTextarea}
+          value={fields.message}
+          onChange={set("message")}
+          placeholder="Tell me about your project, preferred dates, and any specific ideas…"
+        />
+        {errors.message && (
+          <span className={styles.formError}>{errors.message}</span>
+        )}
+      </div>
+
+      {status === "error" && (
+        <p className={styles.formServerError}>{serverError}</p>
+      )}
+
+      <button
+        className={styles.submitBtn}
+        type="submit"
+        disabled={status === "submitting"}
+      >
+        {status === "submitting" ? "Sending…" : "Send Message"}
+      </button>
+    </form>
+  );
+}
+
 export default function ContactPage() {
   return (
     <PageWrapper>
@@ -112,17 +275,15 @@ export default function ContactPage() {
               <span>Follow me on Instagram</span>
               <span className={styles.arrow}>↗</span>
             </a>
-            <a href="tel:+15554565" className={styles.contactRow}>
-              <span>+1 555 4565</span>
-              <span className={styles.arrow}>↗</span>
-            </a>
-            <a
-              href="mailto:contact@blklotus-productions.com"
-              className={styles.contactRow}
-            >
+            <span className={styles.contactRow}>
               <span>contact@blklotus-productions.com</span>
-              <span className={styles.arrow}>↗</span>
-            </a>
+              <a
+                href="mailto:contact@blklotus-productions.com"
+                className={styles.arrow}
+              >
+                ↗
+              </a>
+            </span>
           </div>
         </div>
 
@@ -164,11 +325,12 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* ── BIG CTA ── */}
-        <div className={styles.cta}>
+        {/* ── CONTACT FORM ── */}
+        <div className={styles.formSection}>
           <hr className={styles.rule} />
-          <h1 className={styles.ctaText}>Contact Now</h1>
+          <h2 className={styles.ctaText}>Contact Now</h2>
           <hr className={styles.rule} />
+          <ContactForm />
         </div>
       </div>
     </PageWrapper>

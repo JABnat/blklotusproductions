@@ -212,14 +212,20 @@ export default function WorksGallery() {
           </div>
 
           {eventType === "all" ? (
-            groupByEventType(filtered).map((group) => (
-              <div key={group.key}>
-                <div className={styles.sectionDivider}>
-                  <span className={styles.sectionDividerLabel}>{labelMap[group.key]}</span>
+            filtered.length === 0 ? (
+              <p style={{ color: "var(--color-accent-2)", textAlign: "center", padding: "3rem 0" }}>
+                No works match the selected filters.
+              </p>
+            ) : (
+              groupByEventType(filtered).map((group) => (
+                <div key={group.key}>
+                  <div className={styles.sectionDivider}>
+                    <span className={styles.sectionDividerLabel}>{labelMap[group.key]}</span>
+                  </div>
+                  <MediaGrid items={group.items} />
                 </div>
-                <MediaGrid items={group.items} />
-              </div>
-            ))
+              ))
+            )
           ) : (
             <MediaGrid
               items={filtered}
