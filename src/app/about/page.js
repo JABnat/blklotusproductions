@@ -31,8 +31,7 @@ export default function AboutPage() {
 
           <div className={styles.aboutContent}>
             <div className={styles.aboutImage}>
-              {/* Placeholder image - replace with actual portrait */}
-              Placeholder Portrait
+              <img src="/assets/images/pexels-trooper.jpg" alt="BLK Lotus Productions" fetchpriority="high" decoding="async" />
             </div>
             <div className={styles.aboutText}>
               <section className={styles.contentSection}>

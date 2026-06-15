@@ -59,30 +59,29 @@ const works = [
   { id: 48, title: "Sweet 16th",                  medium: "photo", eventType: "sweet-16th",         src: "/assets/portfolio/photos/Sweet%2016th/IMG_0340.jpg" },
   { id: 49, title: "Sweet 16th",                  medium: "photo", eventType: "sweet-16th",         src: "/assets/portfolio/photos/Sweet%2016th/IMG_8450-Enhanced-NR.jpg" },
   { id: 50, title: "Sweet 16th",                  medium: "photo", eventType: "sweet-16th",         src: "/assets/portfolio/photos/Sweet%2016th/IMG_9296.jpg" },
-  // IG Reels – Community
-  { id: 55, title: "Birthday Benefit Concert",           medium: "video", eventType: "community",       src: "/assets/portfolio/videos/IG%20REELS/Community/BIRTHDAY%20BENEFIT%20CONCERT%20(V1).mp4" },
-  { id: 56, title: "Redlands Community",                 medium: "video", eventType: "community",       src: "/assets/portfolio/videos/IG%20REELS/Community/Redlands%20Community.mp4" },
-  { id: 57, title: "VAPA",                               medium: "video", eventType: "community",       src: "/assets/portfolio/videos/IG%20REELS/Community/VAPA.mp4" },
-  // IG Reels – Concert Event
-  { id: 58, title: "A Concert for Altadena",             medium: "video", eventType: "concert",         src: "/assets/portfolio/videos/IG%20REELS/Concert%20Event/A%20Concert%20for%20Altadena%20(IG%20Highlight).mp4" },
-  { id: 59, title: "BTS Concert",                        medium: "video", eventType: "concert",         src: "/assets/portfolio/videos/IG%20REELS/Concert%20Event/BTS%20Concert%20ig.mp4" },
-  { id: 60, title: "Javed Ali",                          medium: "video", eventType: "concert",         concertArtist: "javed-ali", src: "/assets/portfolio/videos/IG%20REELS/Concert%20Event/Javed%20Ali%20IG.mp4" },
-  // IG Reels – Fashion
-  { id: 61, title: "LA Fashion Promo",                   medium: "video", eventType: "fashion",         src: "/assets/portfolio/videos/IG%20REELS/Fashion/IG%20PROMO%20LA%20FASHION%201.mp4" },
-  { id: 62, title: "LA Fashion",                         medium: "video", eventType: "fashion",         src: "/assets/portfolio/videos/IG%20REELS/Fashion/LA%20Fashion%20IG.mp4" },
-  // IG Reels – Indian Festival
-  { id: 63, title: "Holi",                               medium: "video", eventType: "indian-festival",  src: "/assets/portfolio/videos/IG%20REELS/Indian%20Festival/Holi%20IG.mp4" },
-  { id: 64, title: "Mela Teeyan Da 2024",                medium: "video", eventType: "indian-festival",  src: "/assets/portfolio/videos/IG%20REELS/Indian%20Festival/IG%20MELA%20TEEYAN%20DA%202024.mp4" },
-  // IG Reels – Product Shots
-  { id: 65, title: "300C",                               medium: "video", eventType: "product-shots",   src: "/assets/portfolio/videos/IG%20REELS/Product%20Shots/300C.mov" },
-  { id: 66, title: "Air Force 1",                        medium: "video", eventType: "product-shots",   src: "/assets/portfolio/videos/IG%20REELS/Product%20Shots/Air%20Force%201.mov" },
-  { id: 67, title: "Fujifilm",                           medium: "video", eventType: "product-shots",   src: "/assets/portfolio/videos/IG%20REELS/Product%20Shots/Fujifilm.mov" },
-  { id: 68, title: "Patent Bred",                        medium: "video", eventType: "product-shots",   src: "/assets/portfolio/videos/IG%20REELS/Product%20Shots/Patent%20Bred.mov" },
-  { id: 69, title: "Retro Pine Green",                   medium: "video", eventType: "product-shots",   src: "/assets/portfolio/videos/IG%20REELS/Product%20Shots/Retro%20Pine%20Green.mov" },
-  { id: 70, title: "Sutefoto",                           medium: "video", eventType: "product-shots",   src: "/assets/portfolio/videos/IG%20REELS/Product%20Shots/Sutefoto.mov" },
-  { id: 71, title: "ZGCine Charger",                     medium: "video", eventType: "product-shots",   src: "/assets/portfolio/videos/IG%20REELS/Product%20Shots/ZGCine%20charger.mov" },
-  { id: 72, title: "ZGcine",                             medium: "video", eventType: "product-shots",   src: "/assets/portfolio/videos/IG%20REELS/Product%20Shots/ZGcine.mov" },
-  { id: 73, title: "Angela",                             medium: "video", eventType: "community",       src: "/assets/portfolio/videos/IG%20REELS/Community/IG%20ANGELA.mp4" },
+  // Videos – Community
+  { id: 55, title: "Birthday Benefit Concert", medium: "video", eventType: "community",      guid: "f3a6e51c-041a-4887-a80b-ce9ac9af24e9" },
+  { id: 56, title: "Redlands Community",       medium: "video", eventType: "community",      guid: "821ceeed-ab7c-408a-a12a-5f190be842e6" },
+  { id: 57, title: "VAPA",                     medium: "video", eventType: "community",      guid: "f1aaae9c-bb79-473e-b703-46e60e81170b" },
+  { id: 73, title: "Angela",                   medium: "video", eventType: "community",      guid: "c3182bd5-9877-489c-a2c7-ae46d75455a9" },
+  // Videos – Concert
+  { id: 58, title: "A Concert for Altadena",   medium: "video", eventType: "concert",        guid: "6a34b631-a045-47b7-970c-983c66f9d2e5" },
+  { id: 59, title: "BTS Concert",              medium: "video", eventType: "concert",        guid: "aa8c6565-81cf-4c8a-853a-c6cb7041bd98" },
+  { id: 60, title: "Javed Ali",                medium: "video", eventType: "concert",        guid: "4262d241-669b-44b9-ac5a-4d56f3d9bf93", concertArtist: "javed-ali" },
+  // Videos – Fashion
+  { id: 61, title: "LA Fashion Promo",         medium: "video", eventType: "fashion",        guid: "4e73549e-6885-4dce-8604-98f9c7441e48" },
+  { id: 62, title: "LA Fashion",               medium: "video", eventType: "fashion",        guid: "751d58c1-8559-49d7-a197-3042678bdfd7" },
+  // Videos – Indian Festival
+  { id: 63, title: "Holi",                     medium: "video", eventType: "indian-festival", guid: "c9958db5-e892-46b2-97c4-f6624c2aab68" },
+  { id: 64, title: "Mela Teeyan Da 2024",      medium: "video", eventType: "indian-festival", guid: "f65bf422-c7e6-4d2a-af11-e2fcd942632d" },
+  // Videos – Product Shots
+  { id: 66, title: "Air Force 1",              medium: "video", eventType: "product-shots",  guid: "74d43833-d85e-4565-a272-6e459407a265" },
+  { id: 67, title: "Fujifilm",                 medium: "video", eventType: "product-shots",  guid: "49978d34-c2ee-44ec-8c56-3266ae5caa30" },
+  { id: 68, title: "Patent Bred",              medium: "video", eventType: "product-shots",  guid: "c8067e48-5df8-40ed-8164-a67197ec5ea1" },
+  { id: 69, title: "Retro Pine Green",         medium: "video", eventType: "product-shots",  guid: "e47b9d1b-06ab-497f-b100-e7d644585f21" },
+  { id: 70, title: "Sutefoto",                 medium: "video", eventType: "product-shots",  guid: "b4189379-c6d5-4d05-ad7f-bb63a4e72079" },
+  { id: 71, title: "ZGCine Charger",           medium: "video", eventType: "product-shots",  guid: "a4f7dbdc-107e-48ea-9e8a-4270e6eda8af" },
+  { id: 72, title: "ZGcine",                   medium: "video", eventType: "product-shots",  guid: "0cc439a3-1df9-4014-834f-98f644d60be3" },
 ];
 
 const MEDIUM_OPTIONS = ["all", "photo", "video"];

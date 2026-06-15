@@ -1,168 +1,270 @@
-# BLK Lotus Website
+# BLK Lotus Productions
 
-A responsive photography and videography website built with Next.js, React, and CSS Modules.
+Photography and videography portfolio site — cinematic, responsive, production-grade.
+
+Built with Next.js App Router, deployed to Cloudflare Workers via OpenNext, with Bunny.net for all video streaming and auto-thumbnails.
+
+---
+
+## Tech Stack
+
+### Framework
+
+| Tool | Version | Purpose |
+|------|---------|---------|
+| [Next.js](https://nextjs.org) | 16.x | App Router, file-based routing, metadata API, server components |
+| [React](https://react.dev) | 19.x | UI rendering |
+
+### Deployment & Hosting
+
+| Tool | Purpose |
+|------|---------|
+| [Cloudflare Workers](https://workers.cloudflare.com) | Serverless edge runtime hosting |
+| [@opennextjs/cloudflare](https://github.com/opennextjs/opennextjs-cloudflare) | Adapts Next.js build output to run on Cloudflare Workers |
+| [Wrangler](https://developers.cloudflare.com/workers/wrangler/) | Cloudflare CLI — deploys the Workers bundle |
+
+Deploy command: `npm run deploy` (runs `opennextjs-cloudflare build && opennextjs-cloudflare deploy`)
+
+### Domain & DNS
+
+| Tool | Purpose |
+|------|---------|
+| [Namecheap](https://namecheap.com) | Domain registrar (`blklotus-productions.com`) |
+| Cloudflare DNS | DNS management (nameservers pointed from Namecheap to Cloudflare) |
+
+### Video & Media
+
+| Tool | Purpose |
+|------|---------|
+| [Bunny.net Stream](https://bunny.net/stream) | Video hosting, HLS delivery, auto-thumbnail generation |
+| [hls.js](https://github.com/video-dev/hls.js) | HLS playback in non-Safari browsers (dynamically imported, zero bundle cost until used) |
+
+All videos are stored in Bunny Stream Library ID `683644`, delivered via pull zone `vz-2ae40eea-75b.b-cdn.net`.
+
+Videos are referenced by GUID in `src/config/bunny.js` — never by file path.
+
+### Email
+
+| Tool | Purpose |
+|------|---------|
+| [Resend](https://resend.com) | Transactional email for the contact form (`/api/contact`) |
+
+### Styling & Fonts
+
+| Tool | Purpose |
+|------|---------|
+| CSS Modules | Scoped component styles (`*.module.css`) |
+| CSS custom properties | Design tokens (colors, spacing) in `globals.css` |
+| [Koulen](https://fonts.google.com/specimen/Koulen) | Display / heading font |
+| [Instrument Sans](https://fonts.google.com/specimen/Instrument+Sans) | Body / UI font |
+| [Exo](https://fonts.google.com/specimen/Exo) | Navbar and footer |
+| [DM Mono](https://fonts.google.com/specimen/DM+Mono) | Admin dashboard code display |
+
+Fonts are loaded via `next/font/google` — downloaded at build time, served from `/_next/static/` with no external requests at runtime.
+
+### Dev Tooling
+
+| Tool | Purpose |
+|------|---------|
+| ESLint + eslint-config-next | Linting |
+| Node.js 18+ / nvm | Runtime version management |
+
+---
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18.x or higher
+- Node.js 18.x or higher (managed via `.nvmrc` / nvm)
 - npm
 
 ### Installation
-
-1. Navigate to the project directory:
-
-```bash
-cd BLKlotus
-```
-
-2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Run the development server:
+### Development
 
 ```bash
-npm run dev
+npm run start
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Opens at [http://localhost:3000](http://localhost:3000).
+
+### Build
+
+```bash
+npm run build
+```
+
+### Deploy to Cloudflare
+
+```bash
+npm run deploy
+```
+
+This runs `opennextjs-cloudflare build && opennextjs-cloudflare deploy`. Requires Wrangler to be authenticated (`wrangler login`).
+
+### Lint
+
+```bash
+npm run lint
+```
+
+---
+
+## Environment Variables
+
+Create `.env.local` at the project root. **Never commit this file.**
+
+```env
+# Bunny Stream API key — server-side only (uploading/deleting videos)
+# Dashboard: dash.bunny.net → Stream → Account → API
+BUNNY_API_KEY=your_key_here
+
+# Resend API key — contact form email delivery
+# Dashboard: resend.com → API Keys
+RESEND_API_KEY=your_key_here
+
+# Email address that receives contact form submissions
+CONTACT_EMAIL=you@yourdomain.com
+```
+
+> `BUNNY_API_KEY` and `RESEND_API_KEY` are never exposed to the client. Do **not** prefix them with `NEXT_PUBLIC_`.
+
+---
 
 ## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.js          # Root layout with Navbar & Footer
-│   ├── page.js            # Homepage
-│   ├── globals.css        # Global styles
-│   ├── about/page.js      # About page
-│   ├── videos/page.js     # Videos portfolio page
-│   ├── photos/page.js     # Photos portfolio page
-│   ├── contact/page.js    # Contact form page
-│   └── terms/page.js      # Terms and Conditions page
+│   ├── layout.js                  # Root layout — fonts, metadata, security headers
+│   ├── page.js                    # Homepage
+│   ├── globals.css                # Design tokens + global resets
+│   ├── about/page.js              # About page
+│   ├── photos/
+│   │   ├── page.js
+│   │   └── PhotosGallery.js       # Photo grid with filter pills + lightbox
+│   ├── videos/
+│   │   ├── page.js
+│   │   └── VideosGallery.js       # Bunny video grid with filter pills + lightbox
+│   ├── works/
+│   │   ├── page.js
+│   │   └── WorksGallery.js        # Combined photo + video grid
+│   ├── contact/
+│   │   ├── page.js
+│   │   └── ContactContent.js      # Contact form, FAQ accordion, photo marquee
+│   ├── admin/
+│   │   ├── page.js
+│   │   └── AdminPage.js           # Password-protected dashboard
+│   ├── api/contact/route.js       # Server route — sends email via Resend
+│   ├── robots.js                  # Auto-generates /robots.txt
+│   ├── sitemap.js                 # Auto-generates /sitemap.xml
+│   ├── error.js                   # Error boundary
+│   └── not-found.js               # 404 page
 ├── components/
-│   ├── Navbar/            # Navigation bar
-│   ├── Footer/            # Footer component
-│   ├── Hero/              # Hero section with video
-│   ├── FeaturedWorks/     # Featured works section
-│   ├── Services/          # Services section
-│   ├── Testimonials/      # Testimonials section
-│   ├── PageTransition/    # Lottie page transition animation
-│   └── PageWrapper/       # Wrapper for pages with transitions
+│   ├── BunnyBackgroundLoop/       # Silent HLS hero background video
+│   ├── BunnyVideo/                # Click-to-play video facade (poster → iframe)
+│   ├── MediaGrid/                 # Photo/video grid with lightbox overlay
+│   ├── Hero/                      # Homepage hero section
+│   ├── FeaturedWorks/             # Homepage featured works cards
+│   ├── AboutSummary/              # Homepage about + brand logo strip
+│   ├── Services/                  # Services section
+│   ├── Testimonials/              # Testimonials section
+│   ├── Navbar/                    # Navigation bar
+│   ├── Footer/                    # Footer
+│   ├── CustomCursor/              # Custom cursor effect
+│   ├── PageTransition/            # Page transition animation
+│   ├── PageWrapper/               # Wraps pages with transition
+│   └── SiteShell/                 # Navbar + Footer shell
+├── config/
+│   └── bunny.js                   # Bunny Stream GUIDs, URL helpers, video catalogue
 └── styles/
-    └── pages.module.css   # Shared page styles
+    └── pages.module.css           # Shared page-level styles
 
 public/
 └── assets/
-    ├── logo/
-    │   └── blklotus-logo_white.png   # Logo file (ADD YOUR LOGO HERE)
-    └── videos/
-        └── hero.mp4                   # Hero video (ADD YOUR VIDEO HERE)
+    ├── logo/                      # Site logo files
+    ├── images/                    # UI images (hero poster, about portrait, brand logos)
+    └── portfolio/
+        └── photos/                # Portfolio photo files served as static assets
 ```
 
-## Features
+---
 
-- **Responsive Design**: 4 breakpoints (Desktop, Tablet, Android, iPhone)
-- **Flexbox Layout**: No CSS Grid - pure Flexbox
-- **Smooth Scrolling**: Quick links navigation
-- **Marquee Animations**: Section titles with looping marquee
-- **Lottie Page Transitions**: Full-screen loading animation
-- **CSS Modules**: Modular, scoped styling
+## Key Patterns
 
-## Brand Colors
+### Video: Bunny Stream
 
-- Background: `#000000` (black)
-- Text: `#ffffff` (white)
-- Footer: `#192521`
-- Accents: `#cac5b9`, `#6d6c67`, `#564e43`
+All videos go through Bunny.net — no local `.mp4` files. GUIDs are the single source of truth.
 
-## Adding Your Assets
-
-### Logo
-
-Place your logo at:
-
-```
-public/assets/logo/blklotus-logo_white.png
+```js
+// src/config/bunny.js
+export const VIDEO_GALLERY = [
+  { guid: "f3a6e51c-...", title: "Birthday Benefit Concert", eventType: "community" },
+  // ...
+];
 ```
 
-### Hero Video
+- **Hero background** → `BunnyBackgroundLoop` (HLS via hls.js, pauses off-screen via IntersectionObserver)
+- **Gallery grid** → `BunnyVideo` facade (poster shown until clicked; iframe only mounts on interaction)
+- **Lightbox** → `BunnyVideo autoActivate` (iframe loads immediately, no second click needed)
 
-Place your hero video at:
+Adding a new video: paste its GUID into `VIDEO_GALLERY` in `bunny.js`. No other changes needed.
 
-```
-public/assets/videos/hero.mp4
-```
+### Photos: Static Assets
 
-### Portfolio Media
+Photos live in `public/assets/portfolio/photos/` and are referenced by path in `WorksGallery.js` and `PhotosGallery.js`.
 
-Replace placeholder content in:
+### Contact Form
 
-- `FeaturedWorks.js` - Featured images/videos
-- `photos/page.js` - Photo gallery
-- `videos/page.js` - Video gallery
+`/contact` → `ContactContent.js` → `POST /api/contact` → Resend API → email to `CONTACT_EMAIL`.
 
-## Scripts
+Includes honeypot spam protection, server-side validation, and rate-limit-friendly error handling.
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+### Security Headers
+
+Configured in `next.config.js` and applied to all routes:
+
+- Content Security Policy (CSP)
+- Strict-Transport-Security (HSTS)
+- X-Frame-Options, X-Content-Type-Options
+- Referrer-Policy, Permissions-Policy
+
+---
 
 ## Responsive Breakpoints
 
-- **Desktop**: > 1024px
-- **Tablet**: 768px - 1024px
-- **Android Mobile**: 360px - 767px
-- **iPhone Mobile**: < 360px
+| Breakpoint | Width |
+|-----------|-------|
+| Desktop | > 1024px |
+| Tablet | 768px – 1024px |
+| Android Mobile | 360px – 767px |
+| iPhone Mobile | < 360px |
 
-## Infrastructure & Deployment
+---
 
-### Hosting — Netlify
+## Brand Colors
 
-The site is deployed and hosted on Netlify.
+| Name | Value |
+|------|-------|
+| Background | `#000000` |
+| White | `#ffffff` |
+| Accent 1 (warm sand) | `#cac5b9` |
+| Accent 2 (mid grey) | `#6d6c67` |
+| Accent 3 (dark brown) | `#564e43` |
+| Footer background | `#192521` |
 
-- Log in at [https://app.netlify.com](https://app.netlify.com) using the project owner's credentials.
-- The site is connected to this GitHub repository. Every push to the `main` branch triggers an automatic deploy.
-- To trigger a deploy manually without a code change: go to the site dashboard → **Deploys** → **Trigger deploy** → **Deploy site**.
-- Alternatively, you can drag and drop a production build folder into the Netlify dashboard under **Deploys** for a one-off manual deploy.
+---
 
-### Custom Domain — Namecheap → Netlify
+## Deploying Changes
 
-The custom domain was purchased through [Namecheap](https://www.namecheap.com).
-
-DNS is managed by delegating nameservers from Namecheap to Netlify:
-
-1. In the Netlify dashboard: **Domain settings** → **Add custom domain** → note the 4 Netlify nameservers provided (e.g. `dns1.p01.nsone.net`).
-2. In Namecheap: go to **Domain List** → **Manage** → **Nameservers** → select **Custom DNS** → enter the 4 Netlify nameservers.
-3. DNS propagation can take up to 48 hours. Once live, Netlify handles SSL automatically via Let's Encrypt.
-
-To update or re-point the domain in the future, repeat step 2 with the new nameservers.
-
-### Media Assets — Cloudflare R2
-
-All photos and videos are hosted on Cloudflare R2 (not bundled with the site build).
-
-- Log in at [https://dash.cloudflare.com](https://dash.cloudflare.com) and navigate to **R2** → **blklotus-assets** bucket.
-- Assets are served via the public R2 URL: `https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/<filename>`
-
-**To upload new photos or videos:**
-
-1. Go to the R2 bucket in the Cloudflare dashboard.
-2. Click **Upload** and select your files.
-3. Once uploaded, the file is immediately available at `https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/<your-filename>`.
-4. Update the relevant source file (`videos/page.js`, `WorksGallery.js`, `Hero.js`, etc.) with the new URL and push to `main` to redeploy.
-
-> Note: Keep file sizes reasonable. Cloudflare Workers enforces a 25 MB per-asset limit for bundled assets — hosting on R2 bypasses this limit entirely.
-
-### Triggering a New Deploy
-
-| Method | Steps |
-|--------|-------|
-| Git push | Push any commit to `main` — Netlify auto-deploys |
-| Manual (Netlify UI) | Netlify dashboard → Deploys → Trigger deploy |
-| Manual (drag & drop) | Run `npm run build`, then drag the `.next` folder into Netlify's deploy drop zone |
+| Goal | Command / Steps |
+|------|----------------|
+| Push code + auto-deploy | `git push origin main` — Cloudflare Workers deploys automatically |
+| Deploy manually | `npm run deploy` |
+| Add a new video | Add GUID to `VIDEO_GALLERY` in `src/config/bunny.js` → push |
+| Add new photos | Drop files into `public/assets/portfolio/photos/<Category>/` → update `PhotosGallery.js` → push |
+| Update contact email | Change `CONTACT_EMAIL` in `.env.local` and in the Cloudflare Workers environment variables |

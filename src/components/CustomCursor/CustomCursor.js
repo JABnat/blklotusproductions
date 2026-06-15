@@ -1,61 +1,52 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [visible, setVisible]   = useState(false); // hidden until first mousemove
+  const [hovering, setHovering] = useState(false);
+  const [show, setShow]         = useState(true);  // false on coarse-pointer devices
+  const elRef                   = useRef(null);
 
   useEffect(() => {
-    // Disable custom cursor on touch / coarse pointer devices
-    if (typeof window !== "undefined" && window.matchMedia) {
-      const mediaQuery = window.matchMedia("(pointer: coarse)");
-      if (mediaQuery.matches) {
-        setIsVisible(false);
-        return;
-      }
+    // Bail out on touch / stylus / coarse-pointer devices
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      setShow(false);
+      return;
     }
 
-    const moveHandler = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
+    const el = elRef.current;
+    if (!el) return;
 
-    const updateHoverState = (e) => {
-      const target = e.target;
-      if (!target) {
-        setIsHoveringInteractive(false);
-        return;
-      }
+    const interactiveSelector =
+      'a, button, [role="button"], input, textarea, select, summary, label';
 
-      const interactiveSelector =
-        'a, button, [role="button"], input, textarea, select, summary, label';
+    const onMove = (e) => {
+      // Direct DOM mutation — avoids a React re-render on every mouse event
+      el.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+
+      if (!visible) setVisible(true);
 
       const isInteractive =
-        target.closest && target.closest(interactiveSelector) !== null;
-
-      setIsHoveringInteractive(isInteractive);
+        e.target?.closest && e.target.closest(interactiveSelector) !== null;
+      setHovering(isInteractive);
     };
 
-    window.addEventListener("mousemove", moveHandler);
-    window.addEventListener("mousemove", updateHoverState);
-
-    return () => {
-      window.removeEventListener("mousemove", moveHandler);
-      window.removeEventListener("mousemove", updateHoverState);
-    };
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!isVisible) return null;
-
-  const cursorStyle = {
-    transform: `translate(calc(${position.x}px - 50%), calc(${position.y}px - 50%))`,
-  };
+  if (!show) return null;
 
   return (
     <div
-      className={`custom-cursor${isHoveringInteractive ? " custom-cursor--hover" : ""}`}
-      style={cursorStyle}
+      ref={elRef}
+      className={[
+        "custom-cursor",
+        visible  ? "custom-cursor--visible" : "",
+        hovering ? "custom-cursor--hover"   : "",
+      ].join(" ")}
     />
   );
 }

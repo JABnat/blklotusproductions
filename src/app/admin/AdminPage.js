@@ -119,6 +119,8 @@ export default function AdminPage() {
               src="/assets/logo/blklotus-logo_white.png"
               alt="BLK Lotus"
               className={styles.loginLogo}
+              loading="lazy"
+              decoding="async"
             />
           </Link>
           <h1 className={styles.loginTitle}>The Darkroom</h1>
@@ -162,6 +164,8 @@ export default function AdminPage() {
           src="/assets/logo/blklotus-logo_white.png"
           alt="BLK Lotus"
           className={styles.dashLogo}
+          loading="lazy"
+          decoding="async"
         />
         <button className={styles.logoutBtn} onClick={handleLogout}>Log Out</button>
       </header>

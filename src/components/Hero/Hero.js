@@ -2,6 +2,8 @@
 
 import styles from "./Hero.module.css";
 import Link from "next/link";
+import BunnyBackgroundLoop from "@/components/BunnyBackgroundLoop/BunnyBackgroundLoop";
+import { VIDEOS } from "@/config/bunny";
 
 export default function Hero() {
   return (
@@ -32,19 +34,13 @@ export default function Hero() {
         {/* Video Content */}
         <div className={styles.videoContent} aria-hidden="true">
           <div className={styles.videoWrapper}>
-            <video
+            <BunnyBackgroundLoop
+              guid={VIDEOS.heroLoop.guid}
+              poster={VIDEOS.heroLoop.poster}
               className={styles.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-            >
-              <source src="https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev/6884385-uhd_4096_2160_25fps.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            />
           </div>
-              </div>
+        </div>
       </div>
     </section>
   );

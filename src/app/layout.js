@@ -99,7 +99,13 @@ export default function RootLayout({ children }) {
       className={`${koulen.variable} ${instrumentSans.variable} ${dmMono.variable} ${exo.variable}`}
     >
       <head>
-        {/* Cloudflare R2 CDN — hero video streams from this origin */}
+        {/* Preload the hero poster — it is the LCP element on the home page */}
+        <link rel="preload" as="image" href="/assets/images/bhungra.png" />
+        {/* Bunny Stream pull zone — HLS segments + auto-thumbnails */}
+        <link rel="preconnect" href="https://vz-2ae40eea-75b.b-cdn.net" />
+        {/* Bunny iframe embed player */}
+        <link rel="preconnect" href="https://iframe.mediadelivery.net" />
+        {/* Legacy R2 video (remove once Hero is fully migrated to BunnyBackgroundLoop) */}
         <link rel="preconnect" href="https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev" />
       </head>
       <body suppressHydrationWarning>

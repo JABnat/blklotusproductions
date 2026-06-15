@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import styles from "./MediaGrid.module.css";
 import pageStyles from "@/styles/pages.module.css";
+import BunnyVideo from "@/components/BunnyVideo/BunnyVideo";
+import { thumbnailUrl } from "@/config/bunny";
 
 export default function MediaGrid({ items, noResultsMessage }) {
   const [selected, setSelected] = useState(null);
@@ -97,7 +99,18 @@ export default function MediaGrid({ items, noResultsMessage }) {
               }
             }}
           >
-            {item.src ? (
+            {item.guid && item.medium === "video" ? (
+              <>
+                <img
+                  src={thumbnailUrl(item.guid)}
+                  alt={item.title}
+                  className={styles.thumbnail}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className={styles.playIcon} aria-hidden="true">▶</div>
+              </>
+            ) : item.src ? (
               item.medium === "video" ? (
                 <>
                   <video
@@ -105,6 +118,7 @@ export default function MediaGrid({ items, noResultsMessage }) {
                     className={styles.thumbnail}
                     muted
                     preload="none"
+                    playsInline
                     aria-hidden="true"
                   />
                   <div className={styles.playIcon} aria-hidden="true">▶</div>
@@ -137,12 +151,21 @@ export default function MediaGrid({ items, noResultsMessage }) {
             ✕
           </button>
           <div className={styles.overlayCard} onClick={(e) => e.stopPropagation()}>
-            {selected.src ? (
+            {selected.guid && selected.medium === "video" ? (
+              <BunnyVideo
+                guid={selected.guid}
+                title={selected.title}
+                className={styles.overlayVideo}
+                autoActivate
+              />
+            ) : selected.src ? (
               selected.medium === "video" ? (
                 <video
                   src={selected.src}
                   controls
                   autoPlay
+                  muted
+                  playsInline
                   className={styles.overlayMedia}
                 />
               ) : (
@@ -150,6 +173,7 @@ export default function MediaGrid({ items, noResultsMessage }) {
                   src={selected.src}
                   alt={selected.title}
                   className={styles.overlayMedia}
+                  decoding="async"
                 />
               )
             ) : (

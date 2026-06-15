@@ -1,0 +1,110 @@
+/* 16:9 container — no layout shift regardless of poster load timing */
+.wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-black);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* ── Active state: full-bleed iframe ── */
+.iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── Facade (poster + play button) ── */
+.facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  display: block;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Subtle zoom-out on hover to hint at interactivity */
+  transition: transform 0.4s ease;
+}
+
+.facade:hover .poster {
+  transform: scale(1.03);
+}
+
+/* Semi-transparent overlay — darkens poster so play button reads clearly */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  transition: background 0.2s ease;
+}
+
+.facade:hover .overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Circular play button ring */
+.playRing {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playRing::before {
+  content: "";
+  position: absolute;
+  width: clamp(56px, 8vw, 80px);
+  height: clamp(56px, 8vw, 80px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.facade:hover .playRing::before {
+  background: rgba(202, 197, 185, 0.25); /* --color-accent-1 at low opacity */
+  border-color: var(--color-accent-1);
+  transform: scale(1.08);
+}
+
+.playIcon {
+  width: clamp(20px, 3vw, 28px);
+  height: clamp(20px, 3vw, 28px);
+  color: var(--color-white);
+  position: relative; /* sits above ::before */
+  /* Nudge right to visually centre the triangle inside the ring */
+  transform: translateX(2px);
+  transition: color 0.2s ease;
+}
+
+.facade:hover .playIcon {
+  color: var(--color-accent-1);
+}
+
+/* Respect reduced motion — remove transitions */
+@media (prefers-reduced-motion: reduce) {
+  .poster,
+  .overlay,
+  .playRing::before,
+  .playIcon {
+    transition: none;
+  }
+  .facade:hover .poster {
+    transform: none;
+  }
+}

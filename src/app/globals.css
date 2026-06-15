@@ -89,21 +89,32 @@ button {
   width: clamp(14px, 1.2vw, 18px);
   height: clamp(14px, 1.2vw, 18px);
   border-radius: 50%;
+  /* Solid white fill + dark outline so it reads on any background — dark or
+     light — without relying on mix-blend-mode, which breaks over GPU-composited
+     elements like <video> and WebGL canvases. */
   background-color: var(--color-white);
+  box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.35);
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
-  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease,
-    box-shadow 0.2s ease;
+  /* Start hidden; JS sets opacity: 1 on first mousemove so it doesn't flash
+     in the top-left corner on page load. */
+  opacity: 0;
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.15s ease,
+    box-shadow 0.2s ease, background-color 0.2s ease;
+  will-change: transform;
+}
+
+.custom-cursor--visible {
+  opacity: 1;
 }
 
 .custom-cursor--hover {
   width: clamp(18px, 1.78vw, 27px);
   height: clamp(18px, 1.78vw, 27px);
-  background-color: transparent;
-  box-shadow: 0 0 18px 9px rgba(255, 255, 255, 0.4);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 1.5px var(--color-accent-1), 0 0 18px 6px rgba(202, 197, 185, 0.3);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
 /* Show native cursor and hide custom cursor on touch devices */

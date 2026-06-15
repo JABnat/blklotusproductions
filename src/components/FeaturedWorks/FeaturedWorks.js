@@ -21,7 +21,9 @@ export default function FeaturedWorks() {
           Take a look at some of the work we&apos;ve done at BlkLotus
           Productions
         </h2>
-        <Link href="/contact" className={styles.contactButton}>Contact Us</Link>
+        <Link href="/contact" className={styles.contactButton}>
+          Contact Us
+        </Link>
       </div>
       <div className={styles.worksContainer}>
         {/* Row 1 — Photography */}
@@ -31,11 +33,15 @@ export default function FeaturedWorks() {
               src="/assets/images/estuary.jpg"
               alt="Photography"
               className={`${styles.workImage} ${styles.photoImage}`}
+              loading="lazy"
+              decoding="async"
             />
             <img
-              src="/assets/images/aurora.webp"
+              src="/assets/images/pexels-delilah.jpg"
               alt=""
               className={styles.estuaryOverlay}
+              loading="lazy"
+              decoding="async"
             />
             <span className={styles.workCategory}>Photography</span>
           </Link>
@@ -51,11 +57,15 @@ export default function FeaturedWorks() {
               src="/assets/images/estuary.jpg"
               alt="Videography"
               className={`${styles.workImage} ${styles.videoImage}`}
+              loading="lazy"
+              decoding="async"
             />
             <img
-              src="/assets/images/aurora.webp"
+              src="/assets/images/pexels-philippe-dubois.jpg"
               alt=""
               className={styles.estuaryOverlay}
+              loading="lazy"
+              decoding="async"
             />
             <span className={styles.workCategory}>Videography</span>
           </Link>

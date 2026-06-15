@@ -38,14 +38,15 @@ const faqs = [
 ];
 
 const marqueeImages = [
-  "/assets/images/estuary.jpg",
-  "/assets/images/aurora.webp",
-  "/assets/images/estuary.jpg",
-  "/assets/images/aurora.webp",
-  "/assets/images/estuary.jpg",
-  "/assets/images/aurora.webp",
-  "/assets/images/estuary.jpg",
-  "/assets/images/aurora.webp",
+  "/assets/portfolio/photos/Concert/Ajay%20Krishna/DSC00211-Enhanced-NR.jpg",
+  "/assets/portfolio/photos/Concert/Hrithik%20Roshan%20%26%20Mika%20Singh/IMG_5426-Enhanced-NR.jpg",
+  "/assets/portfolio/photos/Concert/Javed%20Ali/IMG_5369-Enhanced-NR.jpg",
+  "/assets/portfolio/photos/Concert/Khurram%20Iqbal/IMG_1457.jpg",
+  "/assets/portfolio/photos/Concert/Unnikrishnan%20%26%20Uthara/DSC00171-Enhanced-NR.jpg",
+  "/assets/portfolio/photos/Family%20Celebration/IMG_3036-2.jpg",
+  "/assets/portfolio/photos/Indian%20Festival/DSC00307-Enhanced-NR.jpg",
+  "/assets/portfolio/photos/Senior%27s%20Photo/IMG_2964.jpg",
+  "/assets/portfolio/photos/Sweet%2016th/IMG_0170-Enhanced-NR.jpg",
 ];
 
 const PROJECT_TYPES = [
@@ -270,7 +271,7 @@ export default function ContactContent() {
         <div className={styles.top}>
           <div className={styles.left}>
             <div className={styles.portrait}>
-              <img src="/assets/images/aurora.webp" alt="BLK Lotus" />
+              <img src="/assets/images/pexels-homesickalien.jpg" alt="BLK Lotus" fetchpriority="high" decoding="async" />
             </div>
             <p className={styles.tagline}>
               Delivering Creative, cinematic visuals that perfectly express your
@@ -329,7 +330,7 @@ export default function ContactContent() {
           <div className={styles.photoTrack}>
             {[...marqueeImages, ...marqueeImages].map((src, i) => (
               <div key={i} className={styles.photoCard}>
-                <img src={src} alt="" />
+                <img src={src} alt="" loading="lazy" decoding="async" />
               </div>
             ))}
           </div>
@@ -337,7 +338,6 @@ export default function ContactContent() {
 
         {/* ── CONTACT FORM ── */}
         <div className={styles.formSection}>
-          <hr className={styles.rule} />
           <h2 className={styles.ctaText}>Contact Now</h2>
           <hr className={styles.rule} />
           <ContactForm />

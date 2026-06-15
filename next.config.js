@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 
+const isDev = process.env.NODE_ENV === "development";
+
 const securityHeaders = [
   // Prevent MIME-type sniffing
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -26,19 +28,24 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      // Next.js hydration scripts + any inline scripts (JSON-LD on home page)
-      "script-src 'self' 'unsafe-inline'",
+      // Next.js hydration scripts + JSON-LD inline scripts.
+      // 'unsafe-eval' is only needed in dev mode (React source-map reconstruction).
+      // React never uses eval() in production.
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
       // Next.js inline styles + CSS modules
       "style-src 'self' 'unsafe-inline'",
-      // Local images + data URIs for placeholders
-      "img-src 'self' data: blob:",
+      // Local images + Bunny auto-thumbnails used as BunnyVideo posters
+      "img-src 'self' data: blob: https://vz-2ae40eea-75b.b-cdn.net",
       // Local fonts (next/font/google downloads at build time, serves from /_next)
       "font-src 'self'",
-      // Cloudflare R2 video in Hero component
-      "media-src 'self' https://*.r2.dev",
-      // Contact form API (server-side only, but listed for completeness)
-      // Looker Studio / GA embed in admin dashboard
-      "frame-src 'self' https://lookerstudio.google.com https://datastudio.google.com https://analytics.google.com",
+      // HLS segments streamed by BunnyBackgroundLoop + R2 video in legacy Hero
+      "media-src 'self' https://vz-2ae40eea-75b.b-cdn.net https://*.r2.dev",
+      // hls.js XHR fetches the M3U8 manifest and TS segment URLs from the pull zone
+      "connect-src 'self' https://vz-2ae40eea-75b.b-cdn.net",
+      // hls.js spawns a Web Worker via blob: URL for segment demuxing
+      "worker-src 'self' blob:",
+      // Looker Studio / GA embed in admin + Bunny iframe player
+      "frame-src 'self' https://iframe.mediadelivery.net https://lookerstudio.google.com https://datastudio.google.com https://analytics.google.com",
       // Prevent this page being framed anywhere (supersedes X-Frame-Options for modern browsers)
       "frame-ancestors 'none'",
       // Restrict form POST targets

@@ -6,7 +6,7 @@ export default function AboutSummary() {
     <section id="about-summary" className={styles.aboutSummary}>
       <div className={styles.aboutSectionHeader}>
         <Image
-          src="/assets/images/bhungra.png"
+          src="/assets/portfolio/photos/Concert/Hrithik Roshan & Mika Singh/IMG_5644-Enhanced-NR.jpg"
           alt="two women dancing bhungra image"
           width={300}
           height={200}
@@ -27,6 +27,8 @@ export default function AboutSummary() {
                   src="/assets/images/spotify.png"
                   style={{ padding: "25%" }}
                   alt="Spotify"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className={styles.img2}>
@@ -34,18 +36,22 @@ export default function AboutSummary() {
                   src="/assets/images/dolby.png"
                   style={{ padding: "8%" }}
                   alt="Dolby"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
             <div className={styles.bottomRow}>
               <div className={styles.img3}>
-                <img src="/assets/images/sony.png" alt="Sony" />
+                <img src="/assets/images/sony.png" alt="Sony" loading="lazy" decoding="async" />
               </div>
               <div className={styles.img4}>
                 <img
                   src="/assets/images/lucasfilm.png"
                   style={{ padding: "10%" }}
                   alt="Lucasfilm"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -55,7 +61,7 @@ export default function AboutSummary() {
       <div className={styles.aboutSummaryBarContainer}>
         <span className={styles.aboutSummaryBar}></span>
         <p className={styles.aboutSummaryText}>
-          | Aaron | Audrey | IsAbella | Abigail | Aaron |                    
+          | Aaron | Audrey | IsAbella | Abigail | Aaron |
         </p>
         <span className={styles.aboutSummaryBar}></span>
       </div>
