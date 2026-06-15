@@ -132,55 +132,86 @@ useEffect(() => {
     animationId = requestAnimationFrame(tick);
   };
 
-  // Check if section is in viewport center
+  // Check if section is filling the viewport vertically
   const isSectionActive = () => {
     const rect = section.getBoundingClientRect();
     return rect.top <= 10 && rect.bottom >= window.innerHeight - 10;
   };
 
+  // Track mouse X so side-of-screen scrolling escapes the helix
+  let mouseX = window.innerWidth / 2;
+  const handleMouseMove = (e) => { mouseX = e.clientX; };
+  // True when cursor is in the centre 60% of the viewport width
+  const isMouseInHelixZone = () => {
+    const edge = window.innerWidth * 0.2;
+    return mouseX > edge && mouseX < window.innerWidth - edge;
+  };
+
+  // Wheel: accumulate delta so a single tick can't advance a card.
+  // Only fire when enough scroll has built up, then lock out for 700 ms
+  // so a fast flick can't chain multiple advances in one gesture.
+  let wheelAccum = 0;
+  let wheelLocked = false;
+  const WHEEL_THRESHOLD = 100; // px of deltaY before a card change fires
+  const WHEEL_COOLDOWN  = 600; // ms before the next card change is allowed
+
   const handleWheel = (e) => {
-    if (!isSectionActive()) return;
+    if (!isSectionActive() || !isMouseInHelixZone()) return;
 
     const goingDown = e.deltaY > 0;
 
-    // If at last card and scrolling down — release
     if (goingDown && currentIndex >= total - 1) return;
-    // If at first card and scrolling up — release
     if (!goingDown && currentIndex <= 0) return;
 
-    // Otherwise hijack
     e.preventDefault();
-    const step = goingDown ? 1 : -1;
-    animateTo(Math.round(currentIndex) + step);
+
+    if (wheelLocked) return;
+
+    wheelAccum += e.deltaY;
+    if (Math.abs(wheelAccum) < WHEEL_THRESHOLD) return;
+
+    // Threshold crossed — advance one card and start cooldown
+    wheelAccum = 0;
+    wheelLocked = true;
+    setTimeout(() => { wheelLocked = false; }, WHEEL_COOLDOWN);
+
+    animateTo(Math.round(currentIndex) + (goingDown ? 1 : -1));
   };
 
-  // Touch support
+  // Touch: require a more deliberate swipe (60 px) and the same cooldown
   let touchStartY = 0;
+  let touchLocked = false;
+  const TOUCH_THRESHOLD = 60;
+
   const handleTouchStart = (e) => {
     touchStartY = e.touches[0].clientY;
   };
   const handleTouchMove = (e) => {
-    if (!isSectionActive()) return;
+    if (!isSectionActive() || touchLocked) return;
     const delta = touchStartY - e.touches[0].clientY;
-    const goingDown = delta > 30;
-    const goingUp = delta < -30;
+    const goingDown = delta > TOUCH_THRESHOLD;
+    const goingUp   = delta < -TOUCH_THRESHOLD;
 
     if (goingDown && currentIndex >= total - 1) return;
-    if (goingUp && currentIndex <= 0) return;
+    if (goingUp   && currentIndex <= 0)         return;
 
     if (goingDown || goingUp) {
       e.preventDefault();
       touchStartY = e.touches[0].clientY;
+      touchLocked = true;
+      setTimeout(() => { touchLocked = false; }, WHEEL_COOLDOWN);
       animateTo(Math.round(currentIndex) + (goingDown ? 1 : -1));
     }
   };
 
   renderCards(0);
+  window.addEventListener("mousemove", handleMouseMove);
   window.addEventListener("wheel", handleWheel, { passive: false });
   window.addEventListener("touchstart", handleTouchStart, { passive: true });
   window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
   return () => {
+    window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("wheel", handleWheel);
     window.removeEventListener("touchstart", handleTouchStart);
     window.removeEventListener("touchmove", handleTouchMove);
