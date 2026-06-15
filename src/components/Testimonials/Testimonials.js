@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./Testimonials.module.css";
+import { useMarqueeInView } from "@/hooks/useMarqueeInView";
 
 const testimonials = [
   {
@@ -55,6 +56,9 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const marqueeRef = useRef(null);
+  const marqueeActive = useMarqueeInView(marqueeRef);
+
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
@@ -187,8 +191,8 @@ useEffect(() => {
   return (
     <section id="testimonials" className={styles.testimonials}>
       {/* Marquee Title */}
-      <div className={styles.marqueeWrapper}>
-        <div className={styles.marquee}>
+      <div ref={marqueeRef} className={styles.marqueeWrapper}>
+        <div className={`${styles.marquee} ${marqueeActive ? styles.marqueeActive : ""}`}>
           <span className={styles.marqueeText}>
             Testimonials<sup style={{ fontSize: "0.5em" }}>(4)</sup>
           </span>

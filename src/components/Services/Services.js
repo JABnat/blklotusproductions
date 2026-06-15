@@ -1,7 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import styles from "./Services.module.css";
 import Link from "next/link";
+import { useMarqueeInView } from "@/hooks/useMarqueeInView";
 
 const services = [
   {
@@ -51,11 +53,14 @@ const services = [
 ];
 
 export default function Services() {
+  const marqueeRef = useRef(null);
+  const marqueeActive = useMarqueeInView(marqueeRef);
+
   return (
     <section id="services" className={styles.services}>
       {/* Marquee Title */}
-      <div className={styles.marqueeWrapper}>
-        <div className={styles.marquee}>
+      <div ref={marqueeRef} className={styles.marqueeWrapper}>
+        <div className={`${styles.marquee} ${marqueeActive ? styles.marqueeActive : ""}`}>
           <span className={styles.marqueeText}>
             Services<sup style={{ fontSize: "0.5em" }}>(3)</sup>
           </span>

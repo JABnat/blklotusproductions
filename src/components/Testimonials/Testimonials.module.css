@@ -45,6 +45,11 @@
   display: flex;
   width: max-content;
   animation: marquee 11.7s linear infinite;
+  animation-play-state: paused;
+}
+
+.marqueeActive {
+  animation-play-state: running;
 }
 
 .marqueeText {

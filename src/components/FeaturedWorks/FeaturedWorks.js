@@ -1,14 +1,19 @@
 "use client";
 
+import { useRef } from "react";
 import styles from "./FeaturedWorks.module.css";
 import Link from "next/link";
+import { useMarqueeInView } from "@/hooks/useMarqueeInView";
 
 export default function FeaturedWorks() {
+  const marqueeRef = useRef(null);
+  const marqueeActive = useMarqueeInView(marqueeRef);
+
   return (
     <section id="featured-works" className={styles.featuredWorks}>
       {/* Marquee Title */}
-      <div className={styles.marqueeWrapper}>
-        <div className={styles.marquee}>
+      <div ref={marqueeRef} className={styles.marqueeWrapper}>
+        <div className={`${styles.marquee} ${marqueeActive ? styles.marqueeActive : ""}`}>
           <span className={styles.marqueeText}>
             Featured Works<sup>(2)</sup>
           </span>
