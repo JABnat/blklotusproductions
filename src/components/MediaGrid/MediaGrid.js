@@ -104,13 +104,13 @@ export default function MediaGrid({ items, noResultsMessage }) {
                     src={item.src}
                     className={styles.thumbnail}
                     muted
-                    preload="metadata"
+                    preload="none"
                     aria-hidden="true"
                   />
                   <div className={styles.playIcon} aria-hidden="true">▶</div>
                 </>
               ) : (
-                <img src={item.src} alt={item.title} className={styles.thumbnail} />
+                <img src={item.src} alt={item.title} className={styles.thumbnail} loading="lazy" decoding="async" />
               )
             ) : (
               <span>{item.title}</span>

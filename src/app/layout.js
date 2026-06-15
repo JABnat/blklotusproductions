@@ -1,8 +1,7 @@
 import "./globals.css";
 import SiteShell from "@/components/SiteShell/SiteShell";
 import CustomCursor from "@/components/CustomCursor/CustomCursor";
-import localFont from "next/font/local";
-import { Koulen, Instrument_Sans, DM_Mono, Zen_Kaku_Gothic_New, Exo } from "next/font/google";
+import { Koulen, Instrument_Sans, DM_Mono, Exo } from "next/font/google";
 
 const SITE_URL = "https://blklotus-productions.com";
 const OG_IMAGE = `${SITE_URL}/assets/images/og-cover.jpg`;
@@ -60,12 +59,6 @@ export const metadata = {
   },
 };
 
-const bicroad = localFont({
-  src: "./fonts/BICRODE.ttf",
-  variable: "--font-bicroad",
-  display: "swap",
-});
-
 const koulen = Koulen({
   subsets: ["latin"],
   weight: "400",
@@ -75,29 +68,26 @@ const koulen = Koulen({
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal"],
   variable: "--font-instrument-sans",
   display: "swap",
 });
 
+// Used only in admin dashboard for code display
 const dmMono = DM_Mono({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
+  weight: ["400"],
+  style: ["normal"],
   variable: "--font-dm-mono",
   display: "swap",
 });
 
-const zenKaku = Zen_Kaku_Gothic_New({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
-  variable: "--font-zen-kaku",
-  display: "swap",
-});
-
+// Navbar + Footer: weights 100, 500, 600, 900 — no italic
 const exo = Exo({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
+  weight: ["100", "500", "600", "900"],
+  style: ["normal"],
   variable: "--font-exo",
   display: "swap",
 });
@@ -106,8 +96,12 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${bicroad.variable} ${koulen.variable} ${instrumentSans.variable} ${dmMono.variable} ${zenKaku.variable} ${exo.variable}`}
+      className={`${koulen.variable} ${instrumentSans.variable} ${dmMono.variable} ${exo.variable}`}
     >
+      <head>
+        {/* Cloudflare R2 CDN — hero video streams from this origin */}
+        <link rel="preconnect" href="https://pub-e4760729ae4d4888ae3db5933e7300d8.r2.dev" />
+      </head>
       <body suppressHydrationWarning>
         <CustomCursor />
         <SiteShell>{children}</SiteShell>

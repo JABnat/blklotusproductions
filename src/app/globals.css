@@ -14,7 +14,6 @@
   
   /* Typography (semantic aliases; base variables come from next/font in layout.js) */
   --font-primary: var(--font-instrument-sans);
-  --font-title: var(--font-bicroad);
   --font-subtitle: var(--font-koulen);
   
   /* Spacing */

@@ -10,7 +10,7 @@ export default function PageWrapper({ children }) {
     // Simulate loading time for animations to load
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);
