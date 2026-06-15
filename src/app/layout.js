@@ -4,12 +4,59 @@ import CustomCursor from "@/components/CustomCursor/CustomCursor";
 import localFont from "next/font/local";
 import { Koulen, Instrument_Sans, DM_Mono, Zen_Kaku_Gothic_New, Exo } from "next/font/google";
 
+const SITE_URL = "https://blklotus-productions.com";
+const OG_IMAGE = `${SITE_URL}/assets/images/og-cover.jpg`;
+
 export const metadata = {
-  title: "BLK Lotus | Photography & Videography",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "BLK Lotus Productions | Photography & Videography",
+    template: "%s | BLK Lotus Productions",
+  },
   description:
-    "Professional photography and videography services based in San Luis Obispo, California. Available for travel within the US.",
+    "Cinematic photography and videography based in San Luis Obispo, CA. Concerts, events, fashion, brand content — available nationwide.",
+  keywords: [
+    "photographer",
+    "videographer",
+    "San Luis Obispo",
+    "California",
+    "event photography",
+    "concert photography",
+    "brand content",
+    "music video",
+    "BLK Lotus",
+  ],
+  authors: [{ name: "BLK Lotus Productions" }],
+  creator: "BLK Lotus Productions",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: "BLK Lotus Productions",
+    title: "BLK Lotus Productions | Photography & Videography",
+    description:
+      "Cinematic photography and videography based in San Luis Obispo, CA. Concerts, events, fashion, brand content — available nationwide.",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "BLK Lotus Productions — Photography & Videography",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BLK Lotus Productions | Photography & Videography",
+    description:
+      "Cinematic photography and videography based in San Luis Obispo, CA.",
+    images: [OG_IMAGE],
+  },
   icons: {
     icon: "/assets/logo/blklotus-logo-black.webp",
+  },
+  alternates: {
+    canonical: SITE_URL,
   },
 };
 

@@ -2,9 +2,18 @@ import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = {
-  title: "About | BLK Lotus",
+  title: "About",
   description:
-    "Learn about BLK Lotus - Professional photography and videography based in San Luis Obispo, California.",
+    "Learn about BLK Lotus Productions — a creative visual studio based in San Luis Obispo, California, specializing in cinematic photography and videography.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About BLK Lotus Productions",
+    description:
+      "A creative visual studio based in San Luis Obispo, CA. Photography, videography, and brand content — available nationwide.",
+    url: "/about",
+  },
 };
 
 export default function AboutPage() {

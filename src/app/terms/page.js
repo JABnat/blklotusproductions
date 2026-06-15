@@ -2,9 +2,16 @@ import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = {
-  title: "Terms and Conditions | BLK Lotus",
+  title: "Terms and Conditions",
   description:
-    "Terms and conditions for BLK Lotus photography and videography services.",
+    "Terms and conditions for BLK Lotus Productions photography and videography services — booking, payment, cancellation, copyright, and delivery policies.",
+  alternates: {
+    canonical: "/terms",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function TermsPage() {

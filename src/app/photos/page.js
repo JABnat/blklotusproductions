@@ -1,9 +1,18 @@
 import PhotosGallery from "./PhotosGallery";
 
 export const metadata = {
-  title: "Photos | BLK Lotus",
+  title: "Photos",
   description:
-    "Browse our photography portfolio - Portraits, events, products, and lifestyle photography.",
+    "Browse the BLK Lotus photography portfolio — concerts, events, fashion, Indian festivals, community, and product shots.",
+  alternates: {
+    canonical: "/photos",
+  },
+  openGraph: {
+    title: "Photography Portfolio | BLK Lotus Productions",
+    description:
+      "Concerts, events, fashion, and more — browse the full photography portfolio.",
+    url: "/photos",
+  },
 };
 
 export default function PhotosPage() {
