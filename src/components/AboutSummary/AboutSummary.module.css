@@ -1,33 +1,33 @@
 .aboutSummary {
   width: 100%;
-  padding-top: var(--spacing-xl);
-  padding-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-xl);
 }
 
 /* ── Grid container ───────────────────────────────────────────────────────── */
 /*
-  col 1 (300 px) : portrait image — spans all 3 rows
-  col 2 (1fr)    : row 1 headline+button / row 3 logos
+  col 1 (42%) : portrait image — spans all 3 rows
+  col 2 (1fr) : row 1 headline+button / row 3 logos
   full-width row : row 2 name strip (spans both cols, sits behind image)
 */
 .aboutSectionHeader {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 42% 1fr;
   grid-template-rows: auto auto auto;
-  column-gap: 5%;
-  margin-top: 10%;
+  min-height: 72vh;
 }
 
 /* ── Portrait image ───────────────────────────────────────────────────────── */
 .aboutSummaryImage {
   grid-column: 1;
-  grid-row: 1 / 4;        /* spans all three rows */
-  align-self: start;
-  border-radius: 1rem;
+  grid-row: 1 / 4;
+  width: 100%;
+  height: 100% !important; /* overrides global img { height: auto } */
   object-fit: cover;
+  object-position: center top;
   position: relative;
-  z-index: 3;    
-  margin-left: 10%;         /* in front of the bar strip */
+  z-index: 3;
+  display: block;
+  border-radius: 0 1rem 1rem 0;
 }
 
 /* ── Headline + button ────────────────────────────────────────────────────── */
@@ -37,32 +37,34 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--spacing-sm);
-  padding-top: var(--spacing-md);
-  margin-left: 15%;
+  gap: var(--spacing-md);
+  padding: 10% 10% 6% 10%;
 }
 
 .containerSummaryTitle h2 {
   font-family: koulen, sans-serif;
-  font-size: clamp(1.5rem, 2vw, 2.75rem);
+  font-size: clamp(1.8rem, 3.5vw, 3.6rem);
   font-weight: 800;
   color: var(--color-white);
-  width: 80%;
+  line-height: 1.05;
+  width: 100%;
 }
 
 .aboutBtn {
   display: inline-block;
-  padding: 0.55rem 1.5rem;
-  border: 1px solid var(--color-accent-1);
-  border-radius: 1rem;
-  color: var(--color-accent-1);
-  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  padding: 0.6rem 1.8rem;
+  border: 1.5px solid var(--color-white);
+  border-radius: 2rem;
+  color: var(--color-white);
+  font-size: clamp(0.7rem, 1.1vw, 0.85rem);
   font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .aboutBtn:hover {
-  background-color: var(--color-accent-1);
+  background-color: var(--color-white);
   color: var(--color-black);
 }
 
@@ -72,31 +74,28 @@
   grid-column: 1 / 3;
   grid-row: 2;
   z-index: 2;
-  background-color: #ffffff;
-  opacity: 0.65;
+  background-color: rgba(255, 255, 255, 0.65);
   display: flex;
   flex-direction: column;
-  color: #000000;
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-sm);
+  color: #000;
 }
 
 .aboutSummaryBar {
-  height: 2px;
+  height: 1.5px;
   width: 100%;
-  background-color: black;
-  margin-top: 0.5%;
-  margin-bottom: 0.5%;
+  background-color: #000;
 }
 
 .aboutSummaryText {
-  word-spacing: 6rem;
+  word-spacing: 4rem;
   align-self: center;
   font-weight: 600;
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+  padding: 0.4rem 0;
 }
 
 /* ── Brand logo grid ──────────────────────────────────────────────────────── */
@@ -105,131 +104,114 @@
   grid-row: 3;
   display: flex;
   flex-direction: column;
-  height: 200px;
-  width: 400px;
-  align-self: center;
-  margin-left: 20%;
-  margin-top: 10%;
+  gap: 0;
+  padding: 8% 10%;
+  align-self: start;
 }
 
 .boxTopRow {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 100px;
+  gap: clamp(1rem, 4vw, 3rem);
 }
 
 .bottomRow {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 100px;
+  gap: clamp(1rem, 4vw, 3rem);
 }
 
-.img1 {
-  height: 100px;
-  width: 100px;
-  object-fit: cover;
-  border: white solid thin;
-  border-radius: 1rem 1rem 0 1rem;
-}
-
-.img2 {
-  height: 100px;
-  width: 100px;
-  object-fit: cover;
-  border: white solid thin;
-  padding: 2%;
-  align-content: center;
-  border-radius: 1rem 1rem 0 0;
-}
-
-.img3 {
-  height: 100px;
-  width: 100px;
-  object-fit: cover;
-  border: white solid thin;
-  border-radius: 0 0 1rem 1rem;
-}
-
+.img1,
+.img2,
+.img3,
 .img4 {
-  height: 100px;
-  width: 100px;
-  object-fit: cover;
-  border: white solid thin;
-  border-radius: 0 1rem 1rem 1rem;
+  width: clamp(60px, 8vw, 100px);
+  height: clamp(60px, 8vw, 100px);
+  object-fit: contain;
+  border: 1px solid var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img1 { border-radius: 1rem 1rem 0 1rem; }
+.img2 { border-radius: 1rem 1rem 0 0;   }
+.img3 { border-radius: 0 0 1rem 1rem;   }
+.img4 { border-radius: 0 1rem 1rem 1rem; }
+
+.img1 img,
+.img2 img,
+.img3 img,
+.img4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 18%;
 }
 
 /* ── Tablet ───────────────────────────────────────────────────────────────── */
 @media screen and (max-width: 1024px) {
   .aboutSectionHeader {
-    grid-template-columns: 240px 1fr;
-    column-gap: 4%;
-    padding: 0 6%;
+    grid-template-columns: 45% 1fr;
+  }
+
+  .containerSummaryTitle {
+    padding: 8% 6% 5% 8%;
   }
 }
 
 /* ── Mobile ───────────────────────────────────────────────────────────────── */
 @media screen and (max-width: 767px) {
+  .aboutSummary {
+    padding-top: 15%;
+    padding-bottom: var(--spacing-lg);
+  }
+
   .aboutSectionHeader {
-    grid-template-columns: 1fr;
-    padding: 0 5%;
-    row-gap: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    min-height: unset;
   }
 
   .aboutSummaryImage {
-    grid-column: 1;
-    grid-row: 1;
+    width: calc(100% - 2 * var(--container-padding));
     margin: 0 auto;
-    max-width: 240px;
-    height: auto;
+    height: 72vw !important;
+    max-height: 420px;
+    object-position: center 20%;
+    border-radius: 1rem;
   }
 
   .containerSummaryTitle {
-    grid-column: 1;
-    grid-row: 2;
-    align-items: center;
-    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+    align-items: flex-start;
+    gap: var(--spacing-sm);
   }
 
   .containerSummaryTitle h2 {
-    width: 100%;
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+    line-height: 1.1;
   }
 
   .aboutSummaryBarContainer {
-    grid-column: 1;
-    grid-row: 3;
-    margin-top: 0;
+    margin: 0;
+  }
+
+  .aboutSummaryText {
+    word-spacing: 2rem;
+    font-size: 0.8rem;
   }
 
   .net {
-    grid-column: 1;
-    grid-row: 4;
-    align-self: center;
-  }
-}
-
-/* ── Small mobile ─────────────────────────────────────────────────────────── */
-@media screen and (max-width: 465px) {
-  .net {
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    height: auto;
+    padding: var(--spacing-md) var(--spacing-md);
+    align-self: unset;
   }
 
-  .boxTopRow {
-    flex-direction: column;
-    gap: 0;
-  }
-
+  .boxTopRow,
   .bottomRow {
-    flex-direction: column;
-    gap: 0;
+    justify-content: center;
+    gap: 1rem;
   }
-
-  .img1 { border-radius: 1rem 0 0 1rem; }
-  .img2 { border-radius: 1rem 0 1rem 1rem; }
-  .img3 { border-radius: 1rem 1rem 1rem 0; }
-  .img4 { border-radius: 1rem 1rem 1rem 0; }
 }

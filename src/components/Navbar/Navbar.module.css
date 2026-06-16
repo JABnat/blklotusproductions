@@ -14,26 +14,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: var(--spacing-md);
 }
 
-/* Logo Container */
+/* ── Logo ─────────────────────────────────────────────────────────────────── */
 .logoContainer {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .logo {
-  height: clamp(40px, 8vw, 60px);
+  height: clamp(40px, 5vw, 60px);
   width: auto;
 }
 
 .logoText {
   line-height: normal;
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
   letter-spacing: 0.01em;
   color: var(--color-white);
 }
@@ -41,42 +40,40 @@
 .logoThick {
   font-family: var(--font-exo), sans-serif;
   font-weight: 900;
-  font-style: normal;
 }
 
 .logoThin {
   font-family: var(--font-exo), sans-serif;
   font-weight: 100;
-  font-style: normal;
 }
 
-/* Quick Links */
+/* ── Quick links (desktop) ────────────────────────────────────────────────── */
 .quickLinks {
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
+}
+
+.quickLinkBtnContainer {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-sm);
 }
 
 .quickLinkBtn {
-  padding: clamp(0.1rem, 0.1vw, 0.1rem) clamp(.1rem, .1vw, 1.5rem);
+  padding: 0.1rem 0.5rem;
   color: var(--color-white);
   border-radius: 1rem;
   font-size: clamp(0.75rem, 1.5vw, 1rem);
   font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .quickLinkBtn:hover {
   transform: translateY(-2px);
 }
 
-.quickLinkBtnContainer {
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-sm);
-}
-
-/* Location Text */
+/* ── Location (desktop) ───────────────────────────────────────────────────── */
 .locationContainer {
   display: flex;
   flex-direction: column;
@@ -88,7 +85,7 @@
   font-size: clamp(0.7rem, 1.2vw, 0.9rem);
   font-weight: 600;
   color: var(--color-accent-1);
-   font-family: var(--font-subtitle);
+  font-family: var(--font-subtitle);
 }
 
 .locationSubtitle {
@@ -96,78 +93,131 @@
   color: var(--color-accent-2);
 }
 
-/* Tablet */
+/* ── Hamburger (hidden on desktop) ───────────────────────────────────────── */
+.hamburger {
+  display: none;
+}
+
+/* ── Mobile dropdown (hidden on desktop) ─────────────────────────────────── */
+.mobileMenu {
+  display: none;
+}
+
+/* ── Tablet (hide location to prevent wrapping) ──────────────────────────── */
 @media screen and (max-width: 1024px) {
   .locationContainer {
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    order: 3;
-    padding-top: var(--spacing-xs);
-    border-top: 1px solid var(--color-accent-3);
+    display: none;
   }
 }
 
-/* Android Mobile */
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
 @media screen and (max-width: 767px) {
+  /* Stack everything centered: logo image → title → hamburger */
   .navbarInner {
     flex-direction: column;
-    gap: var(--spacing-sm);
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0;
   }
 
+  /* Stack logo image above logo text */
   .logoContainer {
-      display: flex;
-      flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
   }
 
   .logo {
-      height: clamp(80px, 8vw, 100px);
+    height: 52px;
   }
 
   .logoText {
-      text-align: center;
-  }
-
-  .quickLinks {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .quickLinkBtn {
-    flex: 1;
+    font-size: 0.85rem;
     text-align: center;
-    max-width: 150px;
+    letter-spacing: 0.08em;
   }
 
+  /* Hide desktop nav items */
+  .quickLinks,
   .locationContainer {
-    width: 100%;
-    align-items: center;
-    text-align: center;
+    display: none;
   }
-}
 
-/* iPhone Mobile */
-@media screen and (max-width: 359px) {
-    .logoContainer {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .logo {
-        height: clamp(80px, 8vw, 100px);
-    }
-
-    .logoText {
-        text-align: center;
-    }
-
-  .quickLinks {
+  /* Hamburger appears naturally below the title in the column flow */
+  .hamburger {
+    display: flex;
     flex-direction: column;
-    width: 100%;
+    justify-content: space-between;
+    width: 28px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.4rem;
   }
 
-  .quickLinkBtn {
+  .bar {
+    display: block;
+    height: 2px;
     width: 100%;
-    max-width: none;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
+  }
+
+  /* Animate bars into an ✕ when open */
+  .barTop { transform: translateY(8px) rotate(45deg); }
+  .barMid { opacity: 0; transform: scaleX(0); }
+  .barBot { transform: translateY(-8px) rotate(-45deg); }
+
+  /* Dropdown panel */
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-top: 1px solid var(--color-accent-3);
+    background-color: rgba(0, 0, 0, 0.97);
+    gap: 0;
+  }
+
+  .mobileLink {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-accent-3);
+    transition: color 0.2s ease;
+  }
+
+  .mobileLink:last-of-type {
+    border-bottom: none;
+  }
+
+  .mobileLink:hover {
+    color: var(--color-accent-1);
+  }
+
+  .mobileLocation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: var(--spacing-md);
+  }
+
+  .mobileLocationTitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-accent-1);
+    font-family: var(--font-subtitle);
+  }
+
+  .mobileLocationSub {
+    font-size: 0.75rem;
+    color: var(--color-accent-2);
   }
 }

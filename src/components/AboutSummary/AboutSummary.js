@@ -11,8 +11,8 @@ export default function AboutSummary() {
         <Image
           src="/assets/portfolio/photos/Indian%20Festival/IMG_0923.jpg"
           alt="Indian festival celebration"
-          width={300}
-          height={450}
+          width={800}
+          height={1200}
           className={styles.aboutSummaryImage}
         />
 
@@ -38,22 +38,10 @@ export default function AboutSummary() {
         <div className={styles.net}>
           <div className={styles.boxTopRow}>
             <div className={styles.img1}>
-              <img
-                src="/assets/images/spotify.png"
-                style={{ padding: "25%" }}
-                alt="Spotify"
-                loading="lazy"
-                decoding="async"
-              />
+              <img src="/assets/images/spotify.png" alt="Spotify" loading="lazy" decoding="async" />
             </div>
             <div className={styles.img2}>
-              <img
-                src="/assets/images/dolby.png"
-                style={{ padding: "8%" }}
-                alt="Dolby"
-                loading="lazy"
-                decoding="async"
-              />
+              <img src="/assets/images/dolby.png" alt="Dolby" loading="lazy" decoding="async" />
             </div>
           </div>
           <div className={styles.bottomRow}>
@@ -61,13 +49,7 @@ export default function AboutSummary() {
               <img src="/assets/images/sony.png" alt="Sony" loading="lazy" decoding="async" />
             </div>
             <div className={styles.img4}>
-              <img
-                src="/assets/images/lucasfilm.png"
-                style={{ padding: "10%" }}
-                alt="Lucasfilm"
-                loading="lazy"
-                decoding="async"
-              />
+              <img src="/assets/images/lucasfilm.png" alt="Lucasfilm" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

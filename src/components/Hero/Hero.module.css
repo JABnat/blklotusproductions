@@ -111,7 +111,7 @@
 /* Android Mobile */
 @media screen and (max-width: 767px) {
   .hero {
-    padding-top: clamp(140px, 25vh, 180px);
+    padding-top: clamp(160px, 22vh, 200px);
     padding-bottom: var(--spacing-lg);
   }
 
@@ -121,7 +121,7 @@
   }
 
   .title {
-    padding-top:10%;
+    padding-top: 0;
   }
 
   .textContent {
@@ -160,6 +160,6 @@
   }
 
   .title {
-    padding-top: 25%;
+    padding-top: 0;
   }
 }
