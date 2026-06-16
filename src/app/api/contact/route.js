@@ -62,7 +62,7 @@ export async function POST(request) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "BLK Lotus Contact <onboarding@resend.dev>",
+      from: "BLK Lotus Contact <contact@blklotus-productions.com>",
       to: [toEmail],
       reply_to: email.trim(),
       subject,
