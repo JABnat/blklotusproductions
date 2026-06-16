@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import styles from "./Testimonials.module.css";
 import { useMarqueeInView } from "@/hooks/useMarqueeInView";
 
@@ -12,6 +13,7 @@ const testimonials = [
     initials: "SM",
     text: "BLK Lotus captured our wedding day beautifully. Every moment was preserved with such artistry and emotion. We couldn't be happier with our photos and video.",
     rating: 5,
+    image: "/assets/portfolio/photos/Sweet%2016th/IMG_0170-Enhanced-NR.jpg",
   },
   {
     id: 2,
@@ -20,6 +22,7 @@ const testimonials = [
     initials: "MC",
     text: "Working with BLK Lotus transformed our brand's visual identity. The creativity and professionalism exceeded our expectations. Highly recommend!",
     rating: 5,
+    image: "/assets/portfolio/photos/Senior%27s%20Photo/IMG_6063.jpg",
   },
   {
     id: 3,
@@ -28,6 +31,7 @@ const testimonials = [
     initials: "ER",
     text: "The team was incredibly professional and captured the essence of our corporate event perfectly. The final deliverables were stunning.",
     rating: 5,
+    image: "/assets/portfolio/photos/Indian%20Festival/DSC00307-Enhanced-NR.jpg",
   },
   {
     id: 4,
@@ -36,6 +40,7 @@ const testimonials = [
     initials: "DP",
     text: "My music video turned out better than I imagined. BLK Lotus understood my vision from day one and brought it to life with incredible attention to detail.",
     rating: 5,
+    image: "/assets/portfolio/photos/Concert/Javed%20Ali/IMG_5369-Enhanced-NR.jpg",
   },
   {
     id: 5,
@@ -44,6 +49,7 @@ const testimonials = [
     initials: "JT",
     text: "The portrait session was such a fun experience! The photos came out amazing and really captured my personality. Will definitely be coming back!",
     rating: 5,
+    image: "/assets/portfolio/photos/Family%20Celebration/IMG_7812.jpg",
   },
   {
     id: 6,
@@ -52,6 +58,7 @@ const testimonials = [
     initials: "MA",
     text: "BLK Lotus helped me elevate my property listings with professional photos and video tours. My clients love the quality of the visuals.",
     rating: 5,
+    image: "/assets/portfolio/photos/Concert/Ajay%20Krishna/DSC00211-Enhanced-NR.jpg",
   },
 ];
 
@@ -77,6 +84,7 @@ export default function Testimonials() {
   // HELIX EFFECT
 useEffect(() => {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia("(max-width: 1024px)").matches) return;
 
   const helix = document.getElementById("helix");
   const section = document.getElementById("testimonials");
@@ -219,9 +227,22 @@ useEffect(() => {
   };
 }, []);
 
+  const cardInner = (testimonial) => (
+    <>
+      <div className={styles.avatarContainer}>
+        <div className={styles.avatar}>{testimonial.initials}</div>
+        <div className={styles.clientInfo}>
+          <span className={styles.clientName}>{testimonial.name}</span>
+          <span className={styles.clientRole}>{testimonial.role}</span>
+        </div>
+      </div>
+      <p className={styles.testimonialText}>&ldquo;{testimonial.text}&rdquo;</p>
+      <div className={styles.rating}>{renderStars(testimonial.rating)}</div>
+    </>
+  );
+
   return (
     <section id="testimonials" className={styles.testimonials}>
-      {/* Marquee Title */}
       <div ref={marqueeRef} className={styles.marqueeWrapper}>
         <div className={`${styles.marquee} ${marqueeActive ? styles.marqueeActive : ""}`}>
           <span className={styles.marqueeText}>
@@ -230,26 +251,30 @@ useEffect(() => {
         </div>
       </div>
 
-      {/* Helix of Testimonial Cards */}
-      <div id="helix" className={styles.helix}>
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className={styles.testimonialCard}>
-            <span className={styles.quoteIcon}>&ldquo;</span>
-
-            <div className={styles.avatarContainer}>
-              <div className={styles.avatar}>{testimonial.initials}</div>
-              <div className={styles.clientInfo}>
-                <span className={styles.clientName}>{testimonial.name}</span>
-                <span className={styles.clientRole}>{testimonial.role}</span>
-              </div>
+      {/* Desktop: helix animation */}
+      <div className={styles.desktopView}>
+        <div id="helix" className={styles.helix}>
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className={styles.testimonialCard}>
+              {cardInner(testimonial)}
             </div>
+          ))}
+        </div>
+      </div>
 
-            <p className={styles.testimonialText}>
-              &ldquo;{testimonial.text}&rdquo;
-            </p>
-
-            <div className={styles.rating}>
-              {renderStars(testimonial.rating)}
+      {/* Tablet / Mobile: stacked cards with faded portfolio backgrounds */}
+      <div className={styles.mobileStack}>
+        {testimonials.map((testimonial) => (
+          <div key={testimonial.id} className={styles.stackCard}>
+            <Image
+              src={testimonial.image}
+              alt=""
+              fill
+              sizes="(max-width: 1024px) 100vw, 680px"
+              className={styles.stackCardBg}
+            />
+            <div className={styles.stackCardContent}>
+              {cardInner(testimonial)}
             </div>
           </div>
         ))}
