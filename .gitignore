@@ -6,9 +6,8 @@ node_modules
 .env.test.local
 .env.production.local
 
-# Large media assets — served from R2/cloud storage, not git
+# Video files are too large for git — host on Bunny Stream instead
 public/assets/portfolio/videos/
-public/assets/portfolio/photos/
 
 # macOS metadata
 .DS_Store
