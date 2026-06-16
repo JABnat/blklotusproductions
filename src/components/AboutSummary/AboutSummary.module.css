@@ -14,13 +14,15 @@
   grid-template-columns: 42% 1fr;
   grid-template-rows: auto auto auto;
   min-height: 72vh;
+  margin-top: 15%;
 }
 
 /* ── Portrait image ───────────────────────────────────────────────────────── */
 .aboutSummaryImage {
   grid-column: 1;
   grid-row: 1 / 4;
-  width: 100%;
+  width: calc(100% - 15%) !important;
+  margin-left: 15%;
   height: 100% !important; /* overrides global img { height: auto } */
   object-fit: cover;
   object-position: center top;
@@ -77,7 +79,9 @@
   background-color: rgba(255, 255, 255, 0.65);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   color: #000;
+  height: 3rem;
 }
 
 .aboutSummaryBar {
@@ -102,33 +106,27 @@
 .net {
   grid-column: 2;
   grid-row: 3;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  padding: 8% 10%;
+  padding: 15% 20%;
   align-self: start;
 }
 
 .boxTopRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: clamp(1rem, 4vw, 3rem);
+  display: contents;
 }
 
 .bottomRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: clamp(1rem, 4vw, 3rem);
+  display: contents;
 }
 
 .img1,
 .img2,
 .img3,
 .img4 {
-  width: clamp(60px, 8vw, 100px);
-  height: clamp(60px, 8vw, 100px);
+  width: 100%;
+  aspect-ratio: 1;
   object-fit: contain;
   border: 1px solid var(--color-white);
   display: flex;
@@ -136,10 +134,12 @@
   justify-content: center;
 }
 
-.img1 { border-radius: 1rem 1rem 0 1rem; }
-.img2 { border-radius: 1rem 1rem 0 0;   }
-.img3 { border-radius: 0 0 1rem 1rem;   }
-.img4 { border-radius: 0 1rem 1rem 1rem; }
+/* Staggered 3-col grid: img1 col1/row1, img2 col2/row1, img3 col2/row2, img4 col3/row2
+   Only the outer perimeter corners are rounded; shared edges stay flat. */
+.img1 { grid-column: 1; grid-row: 1; border-radius: 1rem 0 0 1rem; }
+.img2 { grid-column: 2; grid-row: 1; border-radius: 0 1rem 0 0; }
+.img3 { grid-column: 2; grid-row: 2; border-radius: 0 0 0 1rem; }
+.img4 { grid-column: 3; grid-row: 2; border-radius: 0 1rem 1rem 0; }
 
 .img1 img,
 .img2 img,
@@ -205,13 +205,14 @@
   }
 
   .net {
+    grid-template-columns: repeat(2, 1fr);
     padding: var(--spacing-md) var(--spacing-md);
     align-self: unset;
   }
 
-  .boxTopRow,
-  .bottomRow {
-    justify-content: center;
-    gap: 1rem;
-  }
+  /* 2×2 grid on mobile — all four outer corners rounded */
+  .img1 { grid-column: 1; grid-row: 1; border-radius: 1rem 0 0 0; }
+  .img2 { grid-column: 2; grid-row: 1; border-radius: 0 1rem 0 0; }
+  .img3 { grid-column: 1; grid-row: 2; border-radius: 0 0 0 1rem; }
+  .img4 { grid-column: 2; grid-row: 2; border-radius: 0 0 1rem 0; }
 }
