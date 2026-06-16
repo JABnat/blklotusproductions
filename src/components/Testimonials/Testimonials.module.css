@@ -194,6 +194,11 @@
   .mobileStack {
     display: flex;
   }
+
+  .marqueeText {
+    padding: 0 var(--spacing-md);
+    font-size: clamp(8rem, 5vw, 4rem);
+  }
 }
 
 /* Mobile */
@@ -204,6 +209,7 @@
 
   .marqueeText {
     padding: 0 var(--spacing-md);
+    font-size: clamp(5rem, 5vw, 4rem);
   }
 }
 

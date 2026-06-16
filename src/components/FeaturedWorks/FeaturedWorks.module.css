@@ -272,10 +272,20 @@
   .imageWrapper {
     margin: 0;
   }
+
+  .marqueeText {
+    padding: 0 var(--spacing-md);
+    font-size: clamp(8rem, 5vw, 4rem);
+  }
 }
 
 @media screen and (max-width: 768px) {
   .workImage {
     height: 25rem;
+  }
+
+  .marqueeText {
+    padding: 0 var(--spacing-md);
+    font-size: clamp(4rem, 5vw, 4rem);
   }
 }

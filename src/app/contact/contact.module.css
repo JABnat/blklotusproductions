@@ -437,7 +437,7 @@
 
 @media screen and (max-width: 767px) {
   .contact {
-    padding-top: 4rem;
+    padding-top: 50%;
   }
 
   .ctaText {

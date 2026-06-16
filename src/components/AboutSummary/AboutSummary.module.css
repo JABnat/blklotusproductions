@@ -206,7 +206,6 @@
 
   .net {
     grid-template-columns: repeat(2, 1fr);
-    padding: var(--spacing-md) var(--spacing-md);
     align-self: unset;
   }
 

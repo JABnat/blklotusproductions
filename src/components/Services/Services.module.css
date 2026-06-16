@@ -153,11 +153,17 @@
   .servicesContainer{
     width: 100%;
   }
+
+  .marqueeText {
+    padding: 0 var(--spacing-md);
+    font-size: clamp(8rem, 5vw, 4rem);
+  }
 }
 
 /* Mobile */
 @media screen and (max-width: 767px) {
   .marqueeText {
     padding: 0 var(--spacing-md);
+    font-size: clamp(5rem, 5vw, 4rem);
   }
 }
