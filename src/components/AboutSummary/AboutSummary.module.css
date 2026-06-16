@@ -1,256 +1,235 @@
- .aboutSummary {
-	position: relative;
-	width: 100%;
-	display: flex;
-	padding-top: var(--spacing-xl);
-	padding-bottom: var(--spacing-lg);
+.aboutSummary {
+  width: 100%;
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
 }
 
-.aboutSummaryContainer {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+/* ── Grid container ───────────────────────────────────────────────────────── */
+/*
+  col 1 (300 px) : portrait image — spans all 3 rows
+  col 2 (1fr)    : row 1 headline+button / row 3 logos
+  full-width row : row 2 name strip (spans both cols, sits behind image)
+*/
+.aboutSectionHeader {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto auto auto;
+  column-gap: 5%;
+  margin-top: 10%;
 }
 
+/* ── Portrait image ───────────────────────────────────────────────────────── */
 .aboutSummaryImage {
-	margin-left: 10%;
-	position: relative;
-	z-index: 3;
-	border-radius: 1rem;
+  grid-column: 1;
+  grid-row: 1 / 4;        /* spans all three rows */
+  align-self: start;
+  border-radius: 1rem;
+  object-fit: cover;
+  position: relative;
+  z-index: 3;    
+  margin-left: 10%;         /* in front of the bar strip */
 }
 
+/* ── Headline + button ────────────────────────────────────────────────────── */
+.containerSummaryTitle {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+  margin-left: 15%;
+}
+
+.containerSummaryTitle h2 {
+  font-family: koulen, sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-white);
+  width: 80%;
+}
+
+.aboutBtn {
+  display: inline-block;
+  padding: 0.55rem 1.5rem;
+  border: 1px solid var(--color-accent-1);
+  border-radius: 1rem;
+  color: var(--color-accent-1);
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.aboutBtn:hover {
+  background-color: var(--color-accent-1);
+  color: var(--color-black);
+}
+
+/* ── Name strip ───────────────────────────────────────────────────────────── */
+/* Spans both columns so it extends behind the image; z-index 2 = under image */
 .aboutSummaryBarContainer {
-	position: absolute;
-	top: calc(45% + 5%);
-	left: 0;
-	transform: translateY(-50%);
-	width: 100vw;
-	background-color: #ffffff;
-    opacity: 0.65;
-	display: flex;
-	flex-direction: column;
-	color: #000000;
-	z-index: 2;
+  grid-column: 1 / 3;
+  grid-row: 2;
+  z-index: 2;
+  background-color: #ffffff;
+  opacity: 0.65;
+  display: flex;
+  flex-direction: column;
+  color: #000000;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
 }
 
 .aboutSummaryBar {
-	height: 2px;
-	width: 100%;
-	background-color: black;
-	margin-top: 0.5%;
-	margin-bottom: 0.5%;
-	z-index: 5;
-	position: relative;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
 }
 
 .aboutSummaryText {
-	word-spacing: 6rem;
-	align-self: center;
-	font-weight: 600;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	max-width: 100%;
+  word-spacing: 6rem;
+  align-self: center;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
-.aboutSectionHeader {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.aboutSectionHeader h2 {
-	width: 70%;
-    font-family: koulen, sans-serif;
-    font-size: clamp(1.5rem, 2vw, 2.75rem);
-    font-weight: 800;
-	margin-top: 5%;
-}
-
-.textButtonContainer {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	margin-left: 10%;
-}
-
-.imageButton {
-	padding: var(--spacing-sm) var(--spacing-md);
-	border: 1px solid var(--color-black);
-	border-radius: 1rem;
-	background-color: white;
-	color: var(--color-black);
-	font-weight: 600;
-	width: 150px;
-	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-.imageButtonContainer {
-	margin-top: var(--spacing-md);
-	display: flex;
-	justify-content: center;
-	border: 1px solid var(--color-accent-1);
-}
-
-.imageButton:hover {
-	background-color: var(--color-accent-1);
-	color: var(--color-black);
-	border-color: var(--color-accent-1);
-}
-
-.containerSummaryTitle {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-
-/* Container */
+/* ── Brand logo grid ──────────────────────────────────────────────────────── */
 .net {
-	display: flex;
-	flex-direction: column;
-	height: 200px;
-	width: 400px;
-	align-self: center;
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 400px;
+  align-self: center;
+  margin-left: 20%;
+  margin-top: 10%;
 }
 
-/* Each clickable box */
 .boxTopRow {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	gap: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 100px;
 }
 
 .bottomRow {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-	gap: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 100px;
 }
 
-/* Example background images */
 .img1 {
-	height:100px;
-	width:100px;
-	object-fit: cover;
-	border: white solid thin;
-	border-radius: 1rem 1rem 0 1rem;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border: white solid thin;
+  border-radius: 1rem 1rem 0 1rem;
 }
 
 .img2 {
-	height: 100px;
-	width: 100px;
-	object-fit: cover;
-	border: white solid thin;
-	padding: 2%;
-	align-content: center;
-	border-radius: 1rem 1rem 0 0;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border: white solid thin;
+  padding: 2%;
+  align-content: center;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .img3 {
-	height: 100px;
-	width: 100px;
-	object-fit: cover;
-	border: white solid thin;
-	border-radius: 0 0 1rem 1rem;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border: white solid thin;
+  border-radius: 0 0 1rem 1rem;
 }
 
 .img4 {
-	height: 100px;
-	width: 100px;
-	object-fit: cover;
-	border: white solid thin;
-	border-radius: 0 1rem 1rem 1rem;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border: white solid thin;
+  border-radius: 0 1rem 1rem 1rem;
 }
 
-/* Tablet */
+/* ── Tablet ───────────────────────────────────────────────────────────────── */
 @media screen and (max-width: 1024px) {
+  .aboutSectionHeader {
+    grid-template-columns: 240px 1fr;
+    column-gap: 4%;
+    padding: 0 6%;
+  }
 }
 
-/* Android Mobile */
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
 @media screen and (max-width: 767px) {
-	.aboutSummaryBarContainer{
-		top:100px;
-	}
+  .aboutSectionHeader {
+    grid-template-columns: 1fr;
+    padding: 0 5%;
+    row-gap: var(--spacing-md);
+  }
 
-	.aboutSectionHeader {
-		align-items: center;
-		flex-direction: column;
-	}
+  .aboutSummaryImage {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 auto;
+    max-width: 240px;
+    height: auto;
+  }
 
-	.aboutSummaryImage{
-		align-self: center;
-		border-radius: 1rem;
-		margin-left: 0;
-	}
+  .containerSummaryTitle {
+    grid-column: 1;
+    grid-row: 2;
+    align-items: center;
+    text-align: center;
+  }
 
-	.textButtonContainer {
-		margin-left:0;
-		place-items: anchor-center;
-	}
+  .containerSummaryTitle h2 {
+    width: 100%;
+  }
 
-	.containerSummaryTitle{
-		place-items: center;
-		text-align: center;
-		margin: 5%;
-	}
+  .aboutSummaryBarContainer {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0;
+  }
+
+  .net {
+    grid-column: 1;
+    grid-row: 4;
+    align-self: center;
+  }
 }
 
+/* ── Small mobile ─────────────────────────────────────────────────────────── */
 @media screen and (max-width: 465px) {
-	.net {
-		flex-direction: row;
-		justify-content: center;
-		margin-top: 20%;
-		margin-bottom: 10%;
-		width: 100%;
-	}
+  .net {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+  }
 
-	.boxTopRow {
-		flex-direction: column;
-	}
+  .boxTopRow {
+    flex-direction: column;
+    gap: 0;
+  }
 
-	.bottomRow {
-		flex-direction: column;
-	}
+  .bottomRow {
+    flex-direction: column;
+    gap: 0;
+  }
 
-	.img4 {
-		border-radius: 1rem 1rem 1rem 0;
-	}
-
-	.img3 {
-		border-radius: 1rem 1rem 1rem 0;
-	}
-
-	.img2 {
-		border-radius: 1rem 0 1rem 1rem;
-	}
-	
-	.img1 {
-		border-radius: 1rem 0 0 1rem;
-	}
+  .img1 { border-radius: 1rem 0 0 1rem; }
+  .img2 { border-radius: 1rem 0 1rem 1rem; }
+  .img3 { border-radius: 1rem 1rem 1rem 0; }
+  .img4 { border-radius: 1rem 1rem 1rem 0; }
 }
-/* iPhone Mobile */
-@media screen and (max-width: 359px) {
-
-.aboutSummary{
-	justify-content: center;
-	}	
-
-	.aboutSectionHeader h2{
-		width:85%;
-		margin-bottom:5%;
-	}
-
-	.containerSummaryTitle{
-		place-content: center;
-	}
-
-	.boxTopRow {
-		flex-direction: column;
-	}
-
-	.bottomRow{
-		flex-direction: column;
-	}
-}
-
