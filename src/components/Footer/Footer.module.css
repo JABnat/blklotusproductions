@@ -7,12 +7,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  
 }
 
 /* ── Top row ──────────────────────────────────────────────────────────────── */
 .footerTop {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   gap: var(--spacing-xl);
 }
@@ -24,6 +26,7 @@
   align-items: flex-start;
   gap: var(--spacing-sm);
   flex-shrink: 0;
+  align-items: center;
 }
 
 .logo {
@@ -36,6 +39,7 @@
   letter-spacing: 0.1em;
   color: var(--color-white);
   line-height: 1.6;
+  text-align: center;
 }
 
 .nameThick {
@@ -52,12 +56,13 @@
 .linksSection {
   display: flex;
   gap: var(--spacing-xl);
+  text-align: center;
 }
 
 /* Each group holds two link columns stacked vertically */
 .columnGroup {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: var(--spacing-lg);
   min-width: 120px;
 }
@@ -102,10 +107,17 @@
 /* ── Tablet ───────────────────────────────────────────────────────────────── */
 @media screen and (max-width: 1024px) {
   .footerTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: var(--spacing-lg);
   }
 
   .linksSection {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: center;
     gap: var(--spacing-lg);
   }
 }
@@ -114,8 +126,12 @@
 @media screen and (max-width: 767px) {
   .footerTop {
     flex-direction: column;
+    align-items: flex-start;
     gap: var(--spacing-lg);
   }
+    .columnGroup {
+      flex-direction: column;
+    }
 
   .logoSection {
     align-items: center;
